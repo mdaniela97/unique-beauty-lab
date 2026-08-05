@@ -406,9 +406,58 @@ function initGestisciCookie() {
 }
 
 /* ============================================================
+   INIETTORE TESTI HARDCODED (da /data/testi-pagina.json via CMS)
+   ------------------------------------------------------------
+   Legge window.SITE_TESTI (popolato dal loader in site-data.js).
+   Sovrascrive il textContent degli elementi con data-testo="chiave"
+   dove chiave è un path tipo "hero.titolo" o "consulenza.punti.0.testo".
+   Se il fetch è fallito, SITE_TESTI è null → HTML resta com'è.
+   Supporta un mini-formato *corsivo*: se il valore contiene *xxx*,
+   la porzione tra asterischi viene resa come <em>xxx</em>.
+   ============================================================ */
+function _rendiCorsivo(testo, classe) {
+  const div = document.createElement("div");
+  div.textContent = testo;
+  // Sostituzione dopo l'escape: *xxx* → <em>xxx</em> (senza HTML iniettabile)
+  const tag = classe ? `<em class="${classe}">$1</em>` : "<em>$1</em>";
+  div.innerHTML = div.innerHTML.replace(/\*([^*]+)\*/g, tag);
+  return div.innerHTML;
+}
+function _pesca(obj, path) {
+  return path.split(".").reduce((o, k) => (o == null ? o : o[k]), obj);
+}
+function injectTesti() {
+  const T = window.SITE_TESTI;
+  if (!T) return;
+  document.querySelectorAll("[data-testo]").forEach(el => {
+    const val = _pesca(T, el.dataset.testo);
+    if (val == null) return;
+    // Con data-testo-raw il valore va come HTML (per supportare *corsivo*).
+    // data-testo-classe (opz.) applica una classe all'<em> generato.
+    if (el.hasAttribute("data-testo-raw")) {
+      el.innerHTML = _rendiCorsivo(String(val), el.dataset.testoClasse || "");
+    } else {
+      el.textContent = String(val);
+    }
+  });
+  // Meta description
+  const seoDesc = _pesca(T, "seo_home.description");
+  if (seoDesc) {
+    const m = document.querySelector('meta[name="description"]');
+    if (m) m.setAttribute("content", seoDesc);
+  }
+  const seoTitle = _pesca(T, "seo_home.title");
+  if (seoTitle && document.body.dataset.pagina === "home") document.title = seoTitle;
+}
+
+/* ============================================================
    AVVIO
    ============================================================ */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  // Attende il loader CMS (con fallback: se fetch fallisce, resolve comunque).
+  if (window.SITE_DATA_READY) { try { await window.SITE_DATA_READY; } catch (_) {} }
+
+  injectTesti();
   initLinks();
   renderFlottanti();
   renderBarraMobile();

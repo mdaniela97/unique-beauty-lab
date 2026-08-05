@@ -1,0 +1,46 @@
+{
+  "azienda": {
+    "nome": "Unique Beauty Lab",
+    "tagline": "Bellezza su misura, nel cuore di Torino.",
+    "indirizzo": "Corso Sebastopoli 267",
+    "cap": "10136",
+    "citta": "Torino",
+    "provincia": "TO",
+    "indirizzoCompleto": "Corso Sebastopoli 267, 10136 Torino (TO)",
+    "telefono": "379 163 6447",
+    "partitaIva": "12610800018",
+    "urlSito": "https://frolicking-pony-29cc7a.netlify.app"
+  },
+  "link": {
+    "telefono": "tel:+393791636447",
+    "whatsapp": "https://wa.me/393791636447",
+    "instagram": "https://www.instagram.com/unique_beauty.lab/",
+    "treatwell": "https://www.treatwell.it/salone/unique-beauty-lab/",
+    "mappa": "https://www.google.com/maps/search/?api=1&query=Corso+Sebastopoli+267+10136+Torino"
+  },
+  "messaggiWhatsapp": {
+    "generico": "Ciao Unique Beauty Lab! Vorrei informazioni sui vostri trattamenti.",
+    "appuntamento": "Ciao Unique Beauty Lab! Vorrei prenotare un appuntamento.",
+    "consulenza": "Ciao! Vorrei prenotare la consulenza laser gratuita.",
+    "sguardo": "Ciao! Vorrei informazioni sui trattamenti per ciglia e sopracciglia.",
+    "laser": "Ciao! Vorrei informazioni sull'epilazione laser.",
+    "viso": "Ciao! Vorrei informazioni sui trattamenti viso.",
+    "unghie": "Ciao! Vorrei prenotare un appuntamento per le unghie.",
+    "corpo": "Ciao! Vorrei informazioni sui trattamenti corpo e massaggi.",
+    "cera": "Ciao! Vorrei informazioni sull'epilazione a cera.",
+    "risultati": "Ciao! Ho visto i risultati sul vostro sito e vorrei informazioni."
+  },
+  "rating": {
+    "google":    { "voto": "5,0", "recensioni": 70 },
+    "treatwell": { "voto": "4,9", "recensioni": 405 }
+  },
+  "orari": [
+    { "giorno": "Lunedì",    "ore": "Chiuso" },
+    { "giorno": "Martedì",   "ore": "09:00 – 19:00" },
+    { "giorno": "Mercoledì", "ore": "10:00 – 19:00" },
+    { "giorno": "Giovedì",   "ore": "09:00 – 19:00" },
+    { "giorno": "Venerdì",   "ore": "10:00 – 19:00" },
+    { "giorno": "Sabato",    "ore": "09:00 – 17:30" },
+    { "giorno": "Domenica",  "ore": "Chiuso" }
+  ]
+}

@@ -289,3 +289,72 @@ const SITE_DATA = {
 
 /* Esportazione per eventuale uso a moduli (non obbligatoria) */
 if (typeof window !== "undefined") window.SITE_DATA = SITE_DATA;
+
+/* ============================================================
+   CMS LOADER (Decap CMS)
+   ------------------------------------------------------------
+   Se in /data/ trova i JSON popolati dal CMS, li unisce sopra
+   SITE_DATA (i valori hardcoded qui sopra restano come fallback).
+   Espone window.SITE_DATA_READY come Promise: i render aspettano
+   quella prima di leggere SITE_DATA.
+   ============================================================ */
+window.SITE_TESTI = null;
+
+window.SITE_DATA_READY = (async function loadCms() {
+  // Solo su http(s): con file:// il fetch dei JSON non funziona.
+  if (typeof window === "undefined" || !/^https?:$/.test(window.location.protocol)) return;
+
+  const j = async (path) => {
+    const r = await fetch(path, { cache: "no-cache" });
+    if (!r.ok) throw new Error(path + " " + r.status);
+    return r.json();
+  };
+
+  const settle = (p) => p.then(v => ({ ok: true, v }), e => ({ ok: false, e }));
+
+  const [azR, teR, caR, reR, arR] = await Promise.all([
+    settle(j("/data/azienda.json")),
+    settle(j("/data/testi-pagina.json")),
+    settle(j("/data/categorie.json")),
+    settle(j("/data/recensioni.json")),
+    settle(j("/data/articoli.json")),
+  ]);
+
+  // ── azienda: merge di ciascun sotto-oggetto (preserva chiavi non esposte) ─
+  if (azR.ok) {
+    const a = azR.v;
+    if (a.azienda)          Object.assign(SITE_DATA.azienda, a.azienda);
+    if (a.link)             Object.assign(SITE_DATA.link, a.link);
+    if (a.messaggiWhatsapp) Object.assign(SITE_DATA.messaggiWhatsapp, a.messaggiWhatsapp);
+    if (a.rating) {
+      if (a.rating.google)    Object.assign(SITE_DATA.rating.google, a.rating.google);
+      if (a.rating.treatwell) Object.assign(SITE_DATA.rating.treatwell, a.rating.treatwell);
+    }
+    if (Array.isArray(a.orari) && a.orari.length === 7) SITE_DATA.orari = a.orari;
+  }
+
+  // ── testi delle pagine: esposti a parte, letti dall'injector ─────────────
+  if (teR.ok) window.SITE_TESTI = teR.v;
+
+  // ── categorie: merge per id (preserva id/icona/immagine/imgW/imgAlt) ─────
+  if (caR.ok && Array.isArray(caR.v.categorie)) {
+    caR.v.categorie.forEach(catNew => {
+      if (!catNew || !catNew.id) return;
+      const cat = SITE_DATA.categorie.find(c => c.id === catNew.id);
+      if (cat) Object.assign(cat, catNew); // include trattamenti aggiornati
+    });
+  }
+
+  // ── recensioni: sostituzione totale (lista aperta) ───────────────────────
+  if (reR.ok && Array.isArray(reR.v.lista)) SITE_DATA.recensioni = reR.v.lista;
+
+  // ── articoli: sostituzione totale con fallback su campi tecnici mancanti ─
+  if (arR.ok && Array.isArray(arR.v.lista)) {
+    SITE_DATA.articoli = arR.v.lista.map(a => Object.assign({
+      immagine: "/assets/img/trattamento-viso-maschera",
+      larghezza: 1000,
+      altezza: 667,
+      alt: ""
+    }, a));
+  }
+})().catch(err => { console.warn("CMS loader:", err); });

@@ -1,0 +1,306 @@
+backend:
+  name: git-gateway
+  branch: main
+  # Nota: il repo di destinazione (mdaniela97/unique-beauty-lab) NON va indicato qui.
+  # git-gateway lo prende automaticamente dal sito Netlify a cui è collegato.
+
+# Cartella per eventuali upload (immagini non modificabili dalla cliente per policy,
+# ma manteniamo la struttura standard di Decap).
+media_folder: uploads
+public_folder: /uploads
+
+# Editor: mostra un'anteprima solo per le raccolte di tipo "files".
+show_preview_links: false
+
+collections:
+
+  - name: sito
+    label: "Contenuti Sito"
+    files:
+
+      # ── 1. AZIENDA (contatti, orari, rating, messaggi) ──────────────────
+      - name: azienda
+        label: "📞 Contatti & Info azienda"
+        file: data/azienda.json
+        format: json
+        fields:
+
+          - label: "Dati azienda"
+            name: azienda
+            widget: object
+            fields:
+              - { label: "Nome centro",              name: nome,               widget: string }
+              - { label: "Tagline breve",            name: tagline,            widget: string, hint: "Slogan da 1 riga, usato in vari punti" }
+              - { label: "Indirizzo (via e numero)", name: indirizzo,          widget: string }
+              - { label: "CAP",                      name: cap,                widget: string }
+              - { label: "Città",                    name: citta,              widget: string }
+              - { label: "Provincia (sigla)",        name: provincia,          widget: string, hint: "Es: TO" }
+              - { label: "Indirizzo completo (usato nel sito)", name: indirizzoCompleto, widget: string, hint: "Es: Corso Sebastopoli 267, 10136 Torino (TO)" }
+              - { label: "Telefono (formato display)", name: telefono,         widget: string, hint: "Es: 379 163 6447" }
+              - { label: "Partita IVA",              name: partitaIva,         widget: string }
+              - { label: "URL sito",                 name: urlSito,            widget: string, hint: "Non toccare se non stai cambiando dominio" }
+
+          - label: "Link & Contatti"
+            name: link
+            widget: object
+            fields:
+              - { label: "Link telefono (tel:)",     name: telefono,  widget: string, hint: "Es: tel:+393791636447" }
+              - { label: "Link WhatsApp",            name: whatsapp,  widget: string, hint: "Es: https://wa.me/393791636447" }
+              - { label: "Link Instagram",           name: instagram, widget: string }
+              - { label: "Link Treatwell",           name: treatwell, widget: string }
+              - { label: "Link Google Maps",         name: mappa,     widget: string }
+
+          - label: "Messaggi WhatsApp precompilati"
+            name: messaggiWhatsapp
+            widget: object
+            hint: "Testi che compaiono già scritti quando un cliente clicca un bottone WhatsApp"
+            fields:
+              - { label: "Generico",                 name: generico,     widget: text }
+              - { label: "Prenota appuntamento",     name: appuntamento, widget: text }
+              - { label: "Consulenza laser",         name: consulenza,   widget: text }
+              - { label: "Sguardo (ciglia/sopracciglia)", name: sguardo, widget: text }
+              - { label: "Laser",                    name: laser,        widget: text }
+              - { label: "Viso",                     name: viso,         widget: text }
+              - { label: "Unghie",                   name: unghie,       widget: text }
+              - { label: "Corpo & Massaggi",         name: corpo,        widget: text }
+              - { label: "Cera",                     name: cera,         widget: text }
+              - { label: "Risultati (visto sul sito)", name: risultati,  widget: text }
+
+          - label: "Valutazioni (rating)"
+            name: rating
+            widget: object
+            fields:
+              - label: "Google"
+                name: google
+                widget: object
+                fields:
+                  - { label: "Voto",         name: voto,        widget: string, hint: "Es: 5,0" }
+                  - { label: "Nº recensioni", name: recensioni, widget: number, value_type: int, min: 0 }
+              - label: "Treatwell"
+                name: treatwell
+                widget: object
+                fields:
+                  - { label: "Voto",         name: voto,        widget: string, hint: "Es: 4,9" }
+                  - { label: "Nº recensioni", name: recensioni, widget: number, value_type: int, min: 0 }
+
+          - label: "Orari di apertura (lun → dom)"
+            name: orari
+            widget: list
+            min: 7
+            max: 7
+            hint: "7 giorni fissi. Cambia solo il campo Ore; per giorno chiuso scrivi 'Chiuso'."
+            summary: "{{fields.giorno}}: {{fields.ore}}"
+            fields:
+              - { label: "Giorno", name: giorno, widget: string }
+              - { label: "Ore",    name: ore,    widget: string, hint: "Es: 09:00 – 19:00 oppure Chiuso" }
+
+      # ── 2. TESTI DELLE PAGINE ────────────────────────────────────────────
+      - name: testi
+        label: "✏️ Testi delle pagine"
+        file: data/testi-pagina.json
+        format: json
+        fields:
+
+          - label: "SEO — Home page"
+            name: seo_home
+            widget: object
+            fields:
+              - { label: "Titolo (title tag)",       name: title,       widget: string }
+              - { label: "Descrizione (meta)",       name: description, widget: text }
+
+          - label: "Sezione Hero (parte alta home)"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Sopratitolo",              name: sopratitolo, widget: string, hint: "Es: Unique Beauty Lab · Torino" }
+              - { label: "Titolo grande",            name: titolo,      widget: string }
+              - { label: "Tagline sotto il titolo",  name: tagline,     widget: text }
+              - { label: "Nota sotto i bottoni",     name: nota,        widget: string }
+
+          - label: "Banner Consulenza Gratuita"
+            name: banner
+            widget: object
+            fields:
+              - { label: "Titolo",                   name: titolo,      widget: string, hint: "Usa asterischi per parole in corsivo: es. *Gratuita*" }
+              - { label: "Sottotitolo",              name: sottotitolo, widget: text }
+
+          - label: "Sezione Consulenza laser (dettaglio)"
+            name: consulenza
+            widget: object
+            fields:
+              - { label: "Sopratitolo",              name: sopratitolo, widget: string }
+              - { label: "Titolo",                   name: titolo,      widget: string }
+              - { label: "Testo introduttivo",       name: intro,       widget: text }
+              - label: "Punti bullet (fissi, 4)"
+                name: punti
+                widget: list
+                min: 4
+                max: 4
+                summary: "{{fields.testo}}"
+                fields:
+                  - { label: "Testo punto", name: testo, widget: string }
+              - { label: "Etichetta prezzo (grande)", name: etichettaPrezzo, widget: string, hint: "Es: Gratuita" }
+              - { label: "Etichetta durata (piccola)", name: etichettaDurata, widget: string, hint: "Es: 30 minuti · su appuntamento" }
+
+          - label: "Sezione Servizi"
+            name: servizi
+            widget: object
+            fields:
+              - { label: "Sopratitolo",              name: sopratitolo, widget: string }
+              - { label: "Titolo",                   name: titolo,      widget: string }
+              - { label: "Testo guida",              name: testoGuida,  widget: text }
+
+          - label: "Sezione Risultati Prima/Dopo (teaser home)"
+            name: risultati
+            widget: object
+            fields:
+              - { label: "Sopratitolo",              name: sopratitolo, widget: string }
+              - { label: "Titolo",                   name: titolo,      widget: string }
+              - { label: "Testo guida",              name: testoGuida,  widget: text }
+              - label: "Didascalia foto 1"
+                name: didascalia1
+                widget: object
+                fields:
+                  - { label: "Titolo",  name: titolo, widget: string }
+                  - { label: "Nota",    name: nota,   widget: string }
+              - label: "Didascalia foto 2"
+                name: didascalia2
+                widget: object
+                fields:
+                  - { label: "Titolo",  name: titolo, widget: string }
+                  - { label: "Nota",    name: nota,   widget: string }
+
+          - label: "Sezione Team"
+            name: team
+            widget: object
+            fields:
+              - { label: "Sopratitolo",              name: sopratitolo, widget: string }
+              - { label: "Titolo sezione",           name: titolo,      widget: string }
+              - { label: "Sottotitolo bio",          name: sottotitolo, widget: string, hint: "Es: Piacere, sono Daniela." }
+              - { label: "Paragrafo bio 1",          name: p1,          widget: text }
+              - { label: "Paragrafo bio 2",          name: p2,          widget: text }
+              - { label: "Paragrafo bio 3 (chiusura)", name: p3,        widget: text }
+
+          - label: "Sezione Recensioni"
+            name: recensioniSez
+            widget: object
+            fields:
+              - { label: "Sopratitolo",              name: sopratitolo, widget: string }
+              - { label: "Titolo",                   name: titolo,      widget: string }
+
+          - label: "Sezione Blog"
+            name: blogSez
+            widget: object
+            fields:
+              - { label: "Sopratitolo",              name: sopratitolo, widget: string }
+              - { label: "Titolo",                   name: titolo,      widget: string }
+              - { label: "Testo guida",              name: testoGuida,  widget: text }
+
+          - label: "Sezione Contatti"
+            name: contattiSez
+            widget: object
+            fields:
+              - { label: "Sopratitolo",              name: sopratitolo, widget: string }
+              - { label: "Titolo",                   name: titolo,      widget: string }
+              - { label: "Testo guida",              name: testoGuida,  widget: text }
+
+          - label: "Sezione Prenota (fondo pagina)"
+            name: prenota
+            widget: object
+            fields:
+              - { label: "Titolo",                   name: titolo,      widget: string }
+              - { label: "Testo",                    name: testo,       widget: text }
+
+      # ── 3. CATEGORIE SERVIZI (6 fisse, trattamenti aperti) ──────────────
+      - name: categorie
+        label: "💆 Servizi & Trattamenti"
+        file: data/categorie.json
+        format: json
+        fields:
+          - label: "Categorie"
+            name: categorie
+            widget: list
+            min: 6
+            max: 6
+            hint: "Le 6 categorie sono fisse: modifica il nome, il sottotitolo e la lista trattamenti di ciascuna."
+            summary: "{{fields.nome}}"
+            fields:
+              # Campi tecnici preservati (invisibili alla cliente):
+              - { label: "ID (interno)",       name: id,        widget: hidden }
+              - { label: "Foto (interna)",     name: immagine,  widget: hidden }
+              - { label: "Larghezze (interne)", name: imgW,     widget: hidden }
+              - { label: "Alt foto (interno)", name: imgAlt,    widget: hidden }
+              - { label: "Icona (interna)",    name: icona,     widget: hidden }
+              - { label: "Messaggio WA (interno)", name: messaggio, widget: hidden }
+              - { label: "Link risultati (interno)", name: risultati, widget: hidden }
+              # Campi editabili:
+              - { label: "Nome categoria",     name: nome,        widget: string }
+              - { label: "Sottotitolo card",   name: sottotitolo, widget: string }
+              - label: "Trattamenti"
+                name: trattamenti
+                widget: list
+                min: 1
+                max: 40
+                summary: "{{fields.nome}}{{fields.gruppo}} — {{fields.prezzo}}"
+                hint: "Trascina per riordinare. Per i trattamenti normali compila Nome/Durata/Prezzo. Per una intestazione di gruppo (es. 'Viso' nel laser) compila SOLO il campo 'Gruppo'."
+                fields:
+                  - { label: "Intestazione gruppo (opzionale)", name: gruppo, widget: string, required: false, hint: "Se compilato, questa riga sarà un titolo di gruppo (Viso / Corpo / Uomo). Lascia vuoto per un trattamento normale." }
+                  - { label: "Nome trattamento", name: nome,     widget: string, required: false }
+                  - { label: "Durata",           name: durata,   widget: string, required: false, hint: "Es: 30 min, 1h, 1h 15min" }
+                  - { label: "Prezzo",           name: prezzo,   widget: string, required: false, hint: "Es: €50, da €40, GRATUITA" }
+                  - { label: "Prezzo pieno (barrato, opz.)", name: prezzoPieno, widget: string, required: false, hint: "Se metti un valore appare barrato accanto al prezzo scontato" }
+                  - label: "Etichetta rosa (opz.)"
+                    name: badge
+                    widget: select
+                    required: false
+                    options: ["", "Promo", "Gratis", "Premium"]
+                    default: ""
+                  - { label: "Evidenzia riga (sfondo rosa)", name: evidenzia, widget: boolean, default: false, required: false }
+
+      # ── 4. RECENSIONI ────────────────────────────────────────────────────
+      - name: recensioni
+        label: "⭐ Recensioni"
+        file: data/recensioni.json
+        format: json
+        fields:
+          - label: "Lista recensioni"
+            name: lista
+            widget: list
+            min: 1
+            max: 6
+            hint: "Da 1 a 6 recensioni. Trascina per riordinare."
+            summary: "{{fields.autore}} ({{fields.fonte}})"
+            fields:
+              - { label: "Nome autore", name: autore, widget: string, hint: "Es: Alessia P." }
+              - label: "Fonte"
+                name: fonte
+                widget: select
+                options: ["Google", "Treatwell", "Facebook", "Instagram"]
+                default: "Google"
+              - { label: "Testo recensione", name: testo, widget: text }
+
+      # ── 5. ANTEPRIME ARTICOLI BLOG ───────────────────────────────────────
+      - name: articoli
+        label: "📝 Anteprime Blog"
+        file: data/articoli.json
+        format: json
+        fields:
+          - label: "Anteprime articoli"
+            name: lista
+            widget: list
+            min: 1
+            max: 6
+            hint: "Da 1 a 6 anteprime. Il corpo dell'articolo è gestito da Diego. Se aggiungi una nuova anteprima, comunica a Diego che serve il file HTML dell'articolo."
+            summary: "{{fields.titolo}}"
+            fields:
+              - { label: "Titolo articolo",  name: titolo,    widget: string }
+              - { label: "Categoria",        name: categoria, widget: string, hint: "Es: Epilazione Laser" }
+              - { label: "Data pubblicazione (AAAA-MM-GG)", name: data, widget: string, hint: "Es: 2026-07-25" }
+              - { label: "Data testo (mostrata)", name: dataTesto, widget: string, hint: "Es: 25 luglio 2026" }
+              - { label: "Estratto (2-3 righe)", name: estratto, widget: text }
+              - { label: "Link articolo (slug)", name: slug,   widget: string, hint: "Percorso del file HTML. Es: /blog/nome-articolo.html — NON toccare se non stai creando un articolo nuovo." }
+              # Campi tecnici preservati (invisibili alla cliente):
+              - { label: "Foto (interna)",    name: immagine,  widget: hidden, required: false }
+              - { label: "Larghezza (interna)", name: larghezza, widget: hidden, required: false }
+              - { label: "Altezza (interna)",  name: altezza,   widget: hidden, required: false }
+              - { label: "Alt foto (interno)", name: alt,       widget: hidden, required: false }

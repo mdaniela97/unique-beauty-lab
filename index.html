@@ -84,7 +84,7 @@
 }
 </script>
 </head>
-<body>
+<body data-pagina="home">
 
 <!-- ===================== HEADER ===================== -->
 <header class="header" id="header">
@@ -122,9 +122,9 @@
 
     <div class="contenitore hero-interno">
       <div class="hero-contenuto">
-        <span class="sopratitolo">Unique Beauty Lab · Torino</span>
-        <h1 class="hero-titolo">Il tuo centro estetico nel cuore di Torino</h1>
-        <p class="hero-tagline">Epilazione laser, viso, corpo e sguardo. Trattamenti su misura, seguiti passo dopo passo.</p>
+        <span class="sopratitolo" data-testo="hero.sopratitolo">Unique Beauty Lab · Torino</span>
+        <h1 class="hero-titolo" data-testo="hero.titolo">Il tuo centro estetico nel cuore di Torino</h1>
+        <p class="hero-tagline" data-testo="hero.tagline">Epilazione laser, viso, corpo e sguardo. Trattamenti su misura, seguiti passo dopo passo.</p>
 
         <div class="hero-badge">
           <span class="badge-rating"><span class="stelle" aria-hidden="true">★</span> 5,0 su Google · 70 recensioni</span>
@@ -137,7 +137,7 @@
           <a class="bottone bottone-contorno" href="https://www.treatwell.it/salone/unique-beauty-lab/"
              data-tw target="_blank" rel="noopener">Prenota su Treatwell</a>
         </div>
-        <p class="hero-nota">Rispondiamo in giornata negli orari di apertura · Consulenza laser gratuita</p>
+        <p class="hero-nota" data-testo="hero.nota">Rispondiamo in giornata negli orari di apertura · Consulenza laser gratuita</p>
       </div>
     </div>
   </section>
@@ -147,8 +147,8 @@
     <div class="contenitore">
       <div class="banner-interno su-scuro reveal">
         <div class="banner-testo">
-          <p class="banner-titolo">Consulenza Laser <em>Gratuita</em></p>
-          <p class="banner-sotto">Analisi personalizzata della pelle · valutazione delle zone da trattare · nessun impegno.</p>
+          <p class="banner-titolo" data-testo="banner.titolo" data-testo-raw>Consulenza Laser <em>Gratuita</em></p>
+          <p class="banner-sotto" data-testo="banner.sottotitolo">Analisi personalizzata della pelle · valutazione delle zone da trattare · nessun impegno.</p>
         </div>
         <a class="bottone bottone-wa bottone-grande" href="https://wa.me/393791636447"
            data-wa="consulenza" target="_blank" rel="noopener">Prenota su WhatsApp</a>
@@ -160,9 +160,9 @@
   <section class="sezione sezione-avorio" id="servizi">
     <div class="contenitore">
       <header class="sezione-testa reveal">
-        <span class="sopratitolo">Il nostro listino</span>
-        <h2>Servizi e trattamenti</h2>
-        <p class="testo-guida">Tocca una categoria per vedere tutti i trattamenti, i prezzi e i risultati reali.</p>
+        <span class="sopratitolo" data-testo="servizi.sopratitolo">Il nostro listino</span>
+        <h2 data-testo="servizi.titolo">Servizi e trattamenti</h2>
+        <p class="testo-guida" data-testo="servizi.testoGuida">Tocca una categoria per vedere tutti i trattamenti, i prezzi e i risultati reali.</p>
         <span class="filetto" aria-hidden="true"></span>
       </header>
 
@@ -180,20 +180,20 @@
   <section class="consulenza su-scuro" id="consulenza-laser">
     <div class="contenitore consulenza-interno">
       <div class="consulenza-testo reveal">
-        <span class="sopratitolo">Epilazione laser</span>
-        <h2>Scopri se il trattamento laser è <span class="consulenza-evidenza">adatto a te</span></h2>
-        <p class="testo-guida">Ogni pelle e ogni pelo rispondono in modo diverso. Prima di iniziare analizziamo insieme la tua situazione e ti diciamo con onestà quante sedute servono e che risultato aspettarti.</p>
+        <span class="sopratitolo" data-testo="consulenza.sopratitolo">Epilazione laser</span>
+        <h2 data-testo="consulenza.titolo" data-testo-raw data-testo-classe="consulenza-evidenza">Scopri se il trattamento laser è <span class="consulenza-evidenza">adatto a te</span></h2>
+        <p class="testo-guida" data-testo="consulenza.intro">Ogni pelle e ogni pelo rispondono in modo diverso. Prima di iniziare analizziamo insieme la tua situazione e ti diciamo con onestà quante sedute servono e che risultato aspettarti.</p>
 
         <ul class="consulenza-punti">
-          <li>Analisi di pelle e tipo di pelo con test personalizzato</li>
-          <li>Piano di sedute e preventivo chiaro, senza sorprese</li>
-          <li>Nessun obbligo di acquisto: decidi con calma</li>
-          <li>Durata 30 minuti, su appuntamento</li>
+          <li data-testo="consulenza.punti.0.testo">Analisi di pelle e tipo di pelo con test personalizzato</li>
+          <li data-testo="consulenza.punti.1.testo">Piano di sedute e preventivo chiaro, senza sorprese</li>
+          <li data-testo="consulenza.punti.2.testo">Nessun obbligo di acquisto: decidi con calma</li>
+          <li data-testo="consulenza.punti.3.testo">Durata 30 minuti, su appuntamento</li>
         </ul>
 
         <div class="consulenza-prezzo">
-          <span class="valore">Gratuita</span>
-          <span class="etichetta">30 minuti · su appuntamento</span>
+          <span class="valore" data-testo="consulenza.etichettaPrezzo">Gratuita</span>
+          <span class="etichetta" data-testo="consulenza.etichettaDurata">30 minuti · su appuntamento</span>
         </div>
 
         <div class="gruppo-cta">
@@ -217,9 +217,9 @@
   <section class="sezione" id="risultati">
     <div class="contenitore">
       <header class="sezione-testa reveal">
-        <span class="sopratitolo">Risultati reali</span>
-        <h2>I nostri risultati</h2>
-        <p class="testo-guida">Foto scattate nel nostro centro: confronti prima e dopo, trattamenti in cabina e lavori realizzati.</p>
+        <span class="sopratitolo" data-testo="risultati.sopratitolo">Risultati reali</span>
+        <h2 data-testo="risultati.titolo">I nostri risultati</h2>
+        <p class="testo-guida" data-testo="risultati.testoGuida">Foto scattate nel nostro centro: confronti prima e dopo, trattamenti in cabina e lavori realizzati.</p>
         <span class="filetto" aria-hidden="true"></span>
       </header>
 
@@ -237,8 +237,8 @@
           </button>
           <figcaption class="media-didascalia">
             <span class="confronto-etichetta">Prima / Dopo</span>
-            <h3 class="confronto-titolo">Epilazione laser corpo</h3>
-            <p class="confronto-nota">Percorso completo su petto e addome.</p>
+            <h3 class="confronto-titolo" data-testo="risultati.didascalia1.titolo">Epilazione laser corpo</h3>
+            <p class="confronto-nota" data-testo="risultati.didascalia1.nota">Percorso completo su petto e addome.</p>
           </figcaption>
         </figure>
 
@@ -255,8 +255,8 @@
           </button>
           <figcaption class="media-didascalia">
             <span class="confronto-etichetta">Prima / Dopo</span>
-            <h3 class="confronto-titolo">Laminazione ciglia</h3>
-            <p class="confronto-nota">Sguardo aperto e definito, senza extension.</p>
+            <h3 class="confronto-titolo" data-testo="risultati.didascalia2.titolo">Laminazione ciglia</h3>
+            <p class="confronto-nota" data-testo="risultati.didascalia2.nota">Sguardo aperto e definito, senza extension.</p>
           </figcaption>
         </figure>
       </div>
@@ -276,8 +276,8 @@
   <section class="sezione sezione-rosa team" id="team">
     <div class="contenitore">
       <header class="sezione-testa reveal">
-        <span class="sopratitolo">Il centro estetico</span>
-        <h2>Conosci il team</h2>
+        <span class="sopratitolo" data-testo="team.sopratitolo">Il centro estetico</span>
+        <h2 data-testo="team.titolo">Conosci il team</h2>
         <span class="filetto" aria-hidden="true"></span>
       </header>
 
@@ -293,10 +293,10 @@
         </figure>
 
         <div class="team-testo reveal">
-          <h3>Piacere, sono Daniela.</h3>
-          <p>Da oltre 10 anni mi dedico al mondo dell'estetica con un obiettivo preciso: aiutare ogni persona a sentirsi bene con sé stessa attraverso trattamenti personalizzati, tecnologie all'avanguardia e una formazione continua.</p>
-          <p>Insieme al mio team condividiamo gli stessi valori: professionalità, attenzione ai dettagli e ascolto. Ogni trattamento nasce dalle esigenze della persona, perché crediamo che la bellezza non sia perfezione, ma armonia.</p>
-          <p class="team-chiusura">Benvenuti in Unique Beauty Lab Torino. Qui troverete persone che amano davvero ciò che fanno e che si prenderanno cura di voi con competenza, passione e professionalità.</p>
+          <h3 data-testo="team.sottotitolo">Piacere, sono Daniela.</h3>
+          <p data-testo="team.p1">Da oltre 10 anni mi dedico al mondo dell'estetica con un obiettivo preciso: aiutare ogni persona a sentirsi bene con sé stessa attraverso trattamenti personalizzati, tecnologie all'avanguardia e una formazione continua.</p>
+          <p data-testo="team.p2">Insieme al mio team condividiamo gli stessi valori: professionalità, attenzione ai dettagli e ascolto. Ogni trattamento nasce dalle esigenze della persona, perché crediamo che la bellezza non sia perfezione, ma armonia.</p>
+          <p class="team-chiusura" data-testo="team.p3">Benvenuti in Unique Beauty Lab Torino. Qui troverete persone che amano davvero ciò che fanno e che si prenderanno cura di voi con competenza, passione e professionalità.</p>
         </div>
       </div>
     </div>
@@ -306,8 +306,8 @@
   <section class="sezione sezione-avorio" id="recensioni">
     <div class="contenitore">
       <header class="sezione-testa reveal">
-        <span class="sopratitolo">Dicono di noi</span>
-        <h2>Le nostre recensioni</h2>
+        <span class="sopratitolo" data-testo="recensioniSez.sopratitolo">Dicono di noi</span>
+        <h2 data-testo="recensioniSez.titolo">Le nostre recensioni</h2>
         <span class="filetto" aria-hidden="true"></span>
       </header>
 
@@ -342,9 +342,9 @@
   <section class="sezione" id="blog">
     <div class="contenitore">
       <header class="sezione-testa reveal">
-        <span class="sopratitolo">Consigli dal centro</span>
-        <h2>Dal nostro blog</h2>
-        <p class="testo-guida">Le domande che ci fanno più spesso, con risposte chiare e senza promesse impossibili.</p>
+        <span class="sopratitolo" data-testo="blogSez.sopratitolo">Consigli dal centro</span>
+        <h2 data-testo="blogSez.titolo">Dal nostro blog</h2>
+        <p class="testo-guida" data-testo="blogSez.testoGuida">Le domande che ci fanno più spesso, con risposte chiare e senza promesse impossibili.</p>
         <span class="filetto" aria-hidden="true"></span>
       </header>
 
@@ -376,8 +376,8 @@
   <section class="sezione sezione-avorio" id="contatti">
     <div class="contenitore">
       <header class="sezione-testa reveal">
-        <span class="sopratitolo">Vieni a trovarci</span>
-        <h2>Contatti e dove siamo</h2>
+        <span class="sopratitolo" data-testo="contattiSez.sopratitolo">Vieni a trovarci</span>
+        <h2 data-testo="contattiSez.titolo">Contatti e dove siamo</h2>
         <span class="filetto" aria-hidden="true"></span>
       </header>
 
@@ -422,8 +422,8 @@
   <section class="fascia-cta">
     <div class="contenitore-stretto fascia-cta-interno reveal">
       <span class="sopratitolo">Ti aspettiamo</span>
-      <h2>Prenota il tuo appuntamento</h2>
-      <p class="testo-guida">Scrivici su WhatsApp: ti rispondiamo in giornata negli orari di apertura e troviamo insieme l'orario che ti serve.</p>
+      <h2 data-testo="prenota.titolo">Prenota il tuo appuntamento</h2>
+      <p class="testo-guida" data-testo="prenota.testo">Scrivici su WhatsApp: ti rispondiamo in giornata negli orari di apertura e troviamo insieme l'orario che ti serve.</p>
       <div class="gruppo-cta gruppo-cta-centro">
         <a class="bottone bottone-wa bottone-grande" href="https://wa.me/393791636447"
            data-wa="appuntamento" target="_blank" rel="noopener">Prenota su WhatsApp</a>

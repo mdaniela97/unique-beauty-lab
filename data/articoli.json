@@ -1,0 +1,40 @@
+{
+  "lista": [
+    {
+      "slug": "/blog/laser-fa-male-quando-si-vedono-i-risultati.html",
+      "titolo": "Laser: fa male? Dopo quanto si vedono i risultati?",
+      "estratto": "Sensazione reale durante la seduta, numero di sedute necessarie e tempi realistici per vedere la pelle liscia.",
+      "categoria": "Epilazione Laser",
+      "data": "2026-07-25",
+      "dataTesto": "25 luglio 2026",
+      "immagine": "/assets/img/epilazione-laser-cabina",
+      "larghezza": 1000,
+      "altezza": 667,
+      "alt": "Manipolo laser durante una seduta di epilazione definitiva"
+    },
+    {
+      "slug": "/blog/come-mantenere-la-pelle-giovane.html",
+      "titolo": "Come mantenere la pelle giovane: consigli e trattamenti efficaci",
+      "estratto": "Le abitudini quotidiane che fanno davvero la differenza e i trattamenti professionali che sostengono collagene ed elasticità.",
+      "categoria": "Trattamenti Viso",
+      "data": "2026-07-25",
+      "dataTesto": "25 luglio 2026",
+      "immagine": "/assets/img/trattamento-viso-maschera",
+      "larghezza": 1000,
+      "altezza": 667,
+      "alt": "Applicazione di una maschera viso professionale in cabina estetica"
+    },
+    {
+      "slug": "/blog/cellulite-cause-rimedi-trattamenti.html",
+      "titolo": "Cellulite: cause, rimedi e trattamenti migliori",
+      "estratto": "Perché si forma, cosa funziona davvero e come combinare i trattamenti professionali per risultati visibili e duraturi.",
+      "categoria": "Corpo & Massaggi",
+      "data": "2026-07-25",
+      "dataTesto": "25 luglio 2026",
+      "immagine": "/assets/img/massaggio-decontratturante",
+      "larghezza": 1000,
+      "altezza": 1500,
+      "alt": "Massaggio corpo professionale in cabina estetica"
+    }
+  ]
+}

@@ -103,7 +103,10 @@ function renderServizi() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  // Attende il loader CMS (con fallback: se fetch fallisce, resolve comunque).
+  if (window.SITE_DATA_READY) { try { await window.SITE_DATA_READY; } catch (_) {} }
+
   renderServizi();
   // Le card appena create devono essere prese in carico dall'osservatore
   // delle animazioni, che è già partito dentro components.js.
