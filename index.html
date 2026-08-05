@@ -481,5 +481,20 @@
 <script src="/assets/js/site-data.js"></script>
 <script src="/assets/js/components.js"></script>
 <script src="/assets/js/home.js"></script>
+
+<!-- Netlify Identity widget: cattura #invite_token/#recovery_token dagli inviti
+     e apre il popup per creare la password. Dopo il login reindirizza a /admin/. -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
