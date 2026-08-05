@@ -1,0 +1,39 @@
+# ============================================================
+# Configurazione Netlify — Unique Beauty Lab
+# Sito statico: nessun build command, si pubblica la root.
+# ============================================================
+
+[build]
+  publish = "."
+
+# --- CSS e JS: rivalidano SEMPRE ---
+# I file non hanno un hash nel nome (style.css, home.js...), quindi con una
+# cache lunga il browser mostrerebbe la versione vecchia dopo un nuovo deploy.
+# max-age=0 + must-revalidate: il browser ricontrolla ogni volta (Netlify
+# risponde 304 se il file non è cambiato, quindi resta veloce) e appena
+# ripubblichi le modifiche si vedono subito.
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# --- Immagini: cache breve (1 ora) ---
+# Così se sostituisci una foto mantenendo lo stesso nome, si aggiorna in fretta.
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# --- Intestazioni di sicurezza di base ---
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"

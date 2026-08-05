@@ -1,0 +1,176 @@
+{
+ "laminazione-ciglia-cabina": {
+  "larghezze": [
+   640,
+   1024
+  ],
+  "sorgente": [
+   1024,
+   1536
+  ],
+  "altezzaMax": 1536
+ },
+ "unghie-french-manicure": {
+  "larghezze": [
+   640,
+   1000
+  ],
+  "sorgente": [
+   1086,
+   1448
+  ],
+  "altezzaMax": 1333
+ },
+ "unghie-semipermanente-french": {
+  "larghezze": [
+   640,
+   1000
+  ],
+  "sorgente": [
+   1169,
+   1942
+  ],
+  "altezzaMax": 1661
+ },
+ "pedicure-nail-art-fiori": {
+  "larghezze": [
+   640,
+   1000
+  ],
+  "sorgente": [
+   1536,
+   2048
+  ],
+  "altezzaMax": 1333
+ },
+ "prima-dopo-laminazione-ciglia": {
+  "larghezze": [
+   800,
+   1400
+  ],
+  "sorgente": [
+   1636,
+   2048
+  ],
+  "altezzaMax": 1753
+ },
+ "prima-dopo-epilazione-laser-corpo": {
+  "larghezze": [
+   800,
+   1400,
+   2000
+  ],
+  "sorgente": [
+   2048,
+   2048
+  ],
+  "altezzaMax": 2000
+ },
+ "prima-dopo-trattamento-viso-antieta": {
+  "larghezze": [
+   800,
+   1400
+  ],
+  "sorgente": [
+   1536,
+   2730
+  ],
+  "altezzaMax": 2488
+ },
+ "prima-dopo-epilazione-laser-ascelle": {
+  "larghezze": [
+   800,
+   1400,
+   2000
+  ],
+  "sorgente": [
+   2048,
+   2048
+  ],
+  "altezzaMax": 2000
+ },
+ "prima-dopo-epilazione-laser-schiena": {
+  "larghezze": [
+   800,
+   1400,
+   2000
+  ],
+  "sorgente": [
+   2048,
+   2048
+  ],
+  "altezzaMax": 2000
+ },
+ "team-unique-beauty-lab": {
+  "larghezze": [
+   640,
+   1000,
+   1536
+  ],
+  "sorgente": [
+   1536,
+   2304
+  ],
+  "altezzaMax": 2304
+ },
+ "epilazione-laser-cabina": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   1600
+  ],
+  "altezzaMax": 1067
+ },
+ "trattamento-viso-maschera": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   1600
+  ],
+  "altezzaMax": 1067
+ },
+ "massaggio-decontratturante": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   3600
+  ],
+  "altezzaMax": 2400
+ },
+ "massaggio-pietre-calde": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   1600
+  ],
+  "altezzaMax": 1067
+ },
+ "oli-essenziali-corpo": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   1600
+  ],
+  "altezzaMax": 1067
+ }
+}

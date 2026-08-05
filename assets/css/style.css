@@ -1,0 +1,1691 @@
+/* ============================================================
+   UNIQUE BEAUTY LAB — style.css
+   ------------------------------------------------------------
+   Identità: editoriale e geometrica, rosa cipria su bianco.
+   Raffinata con: titoli serif ad alto contrasto, spaziature
+   generose, ombre morbide e micro-interazioni discrete.
+
+   INDICE
+   01. Design tokens
+   02. Reset e basi
+   03. Tipografia
+   04. Layout e utilità
+   05. Bottoni e CTA
+   06. Header e navigazione
+   07. Hero
+   08. Fasce CTA e banner
+   09. Servizi (accordion)
+   10. Consulenza laser
+   11. Recensioni
+   12. Gallery, confronti, slider e lightbox
+   13. Blog
+   14. Contatti
+   15. Footer
+   16. Flottanti e barra mobile
+   17. Animazioni
+   18. Media query
+   ============================================================ */
+
+/* ============================================================
+   01. DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* --- Colore --- */
+  --rosa: #E8B4C0;            /* accento: riempimenti e decori   */
+  --rosa-scuro: #D08FA1;      /* bordi e stati hover              */
+  --rosa-testo: #A15C71;      /* testo su bianco: contrasto 4,9:1 */
+  --rosa-tenue: #FAF2F4;      /* fondi molto chiari               */
+  --rosa-velo: #F3E3E7;       /* separatori tinta rosa            */
+
+  --bianco: #FFFFFF;
+  --avorio: #FBFAF9;          /* bianco caldo: più elegante del grigio */
+  --grigio-bg: #F5F4F3;
+  --linea: #E7E4E2;
+
+  --testo: #2F2F31;           /* più profondo: aumenta il contrasto */
+  --testo-soft: #6B6B70;
+  --scuro: #232325;
+
+  --wa: #25D366;
+  --wa-scuro: #1DA851;
+  --wa-testo: #042A15;
+
+  /* --- Tipografia --- */
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-label:   "Montserrat", system-ui, sans-serif;
+  --font-corpo:   "Inter", system-ui, -apple-system, sans-serif;
+
+  /* --- Spaziature (scala coerente) --- */
+  --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;
+  --sp-5: 24px;  --sp-6: 32px;  --sp-7: 40px;  --sp-8: 56px;
+  --sp-9: 72px;  --sp-10: 96px; --sp-11: 128px;
+
+  --pad-sezione: var(--sp-9);      /* respiro verticale sezioni */
+  --pad-lato: var(--sp-5);         /* respiro laterale          */
+  --gap-card: 20px;
+
+  /* --- Forma --- */
+  --r-xs: 2px;    /* badge, dettagli    */
+  --r-sm: 4px;    /* bottoni, card      */
+  --r-md: 8px;    /* immagini, pannelli */
+  --r-lg: 14px;   /* lightbox           */
+
+  /* --- Ombre: molto morbide, mai marcate --- */
+  --ombra-1: 0 1px 2px rgba(35,35,37,.04), 0 4px 16px rgba(35,35,37,.05);
+  --ombra-2: 0 2px 6px rgba(35,35,37,.06), 0 14px 36px rgba(35,35,37,.09);
+  --ombra-3: 0 24px 70px rgba(35,35,37,.28);
+
+  /* --- Movimento --- */
+  --curva: cubic-bezier(.22,.61,.36,1);
+  --veloce: .22s var(--curva);
+  --medio: .38s var(--curva);
+
+  --altezza-header: 68px;
+}
+
+/* ============================================================
+   02. RESET E BASI
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--altezza-header) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-corpo);
+  font-size: 1rem;
+  line-height: 1.75;              /* più aria fra le righe */
+  color: var(--testo);
+  background: var(--bianco);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  padding-bottom: 62px;           /* spazio barra mobile */
+  overflow-x: hidden;
+}
+
+img, svg, iframe, picture { display: block; max-width: 100%; }
+img { height: auto; }
+picture { width: 100%; }
+a { color: inherit; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+::selection { background: var(--rosa); color: var(--scuro); }
+
+/* Focus visibile e coerente su tutto il sito */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--rosa-testo);
+  outline-offset: 3px;
+  border-radius: var(--r-xs);
+}
+
+/* ============================================================
+   03. TIPOGRAFIA
+   ============================================================ */
+
+/* Titoli display: serif ad alto contrasto = eleganza immediata.
+   Restano geometrici grazie a interlinea stretta e tracking ridotto. */
+.titolo-display,
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  color: var(--testo);
+}
+
+h1 { font-size: clamp(2.4rem, 10vw, 3.6rem); }
+h2 { font-size: clamp(1.9rem, 7vw, 2.6rem); }
+
+/* Titoli di servizio / etichette: restano Montserrat maiuscolo,
+   è la cifra riconoscibile del brand. */
+h3, h4 {
+  font-family: var(--font-label);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+h3 { font-size: 0.9rem; }
+h4 { font-size: 0.72rem; }
+
+.sopratitolo {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rosa-testo);
+  margin-bottom: var(--sp-4);
+}
+
+p { margin-bottom: 1.1em; }
+p:last-child { margin-bottom: 0; }
+
+.testo-guida {                    /* paragrafo introduttivo sezione */
+  color: var(--testo-soft);
+  font-size: 1.02rem;
+  line-height: 1.8;
+  max-width: 58ch;
+}
+
+/* ============================================================
+   04. LAYOUT E UTILITÀ
+   ============================================================ */
+.contenitore {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: var(--pad-lato);
+}
+.contenitore-stretto {
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+  padding-inline: var(--pad-lato);
+}
+
+.sezione { padding-block: var(--pad-sezione); }
+.sezione-avorio { background: var(--avorio); }
+.sezione-grigia { background: var(--grigio-bg); }
+.sezione-rosa   { background: var(--rosa-tenue); }
+
+/* Intestazione di sezione */
+.sezione-testa {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto var(--sp-8);
+}
+.sezione-testa .filetto {
+  display: block;
+  width: 40px; height: 1px;
+  background: var(--rosa-scuro);
+  margin: var(--sp-5) auto 0;
+}
+.sezione-testa .testo-guida { margin-inline: auto; }
+.sezione-testa h1 + .testo-guida,
+.sezione-testa h2 + .testo-guida { margin-top: var(--sp-5); }
+
+.sezione-azione { text-align: center; margin-top: var(--sp-8); }
+.testo-centro { text-align: center; }
+
+.solo-lettori-schermo {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ============================================================
+   05. BOTTONI E CTA
+   ============================================================ */
+.bottone {
+  --glow: transparent;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: 52px;                /* tap target generoso */
+  padding: 15px 30px;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--veloce), color var(--veloce),
+              border-color var(--veloce), box-shadow var(--medio),
+              transform var(--veloce);
+}
+.bottone:hover { transform: translateY(-2px); }
+.bottone:active { transform: translateY(0); transition-duration: .08s; }
+.bottone svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+/* CTA principale: WhatsApp. Glow verde molto delicato, solo in hover. */
+.bottone-wa {
+  background: var(--wa);
+  color: var(--wa-testo);
+  box-shadow: 0 2px 10px rgba(37,211,102,.22);
+}
+.bottone-wa:hover {
+  background: var(--wa-scuro);
+  color: var(--bianco);
+  box-shadow: 0 6px 22px rgba(37,211,102,.38);
+}
+
+/* CTA rosa: azioni secondarie di rilievo */
+.bottone-rosa {
+  background: var(--rosa);
+  color: var(--scuro);
+  box-shadow: 0 2px 10px rgba(208,143,161,.24);
+}
+.bottone-rosa:hover {
+  background: var(--rosa-scuro);
+  color: var(--bianco);
+  box-shadow: 0 6px 22px rgba(208,143,161,.36);
+}
+
+/* CTA discreta: contorno sottile */
+.bottone-contorno {
+  border-color: rgba(47,47,49,.28);
+  color: var(--testo);
+  background: transparent;
+}
+.bottone-contorno:hover {
+  border-color: var(--testo);
+  background: var(--testo);
+  color: var(--bianco);
+}
+
+/* Varianti su fondo scuro */
+.su-scuro .bottone-contorno { border-color: rgba(255,255,255,.34); color: #F0EFEE; }
+.su-scuro .bottone-contorno:hover { background: var(--bianco); color: var(--scuro); border-color: var(--bianco); }
+
+.bottone-grande { min-height: 58px; padding: 18px 34px; font-size: 0.8rem; }
+
+/* Link testuale con freccia animata */
+.link-freccia {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  text-decoration: none;
+  color: var(--rosa-testo);
+  padding-block: var(--sp-1);
+  transition: color var(--veloce), gap var(--veloce);
+}
+.link-freccia::after { content: "→"; transition: transform var(--veloce); }
+.link-freccia:hover { color: var(--testo); gap: var(--sp-3); }
+.link-freccia:hover::after { transform: translateX(2px); }
+
+/* Gruppi di CTA: stessa larghezza affiancati, a piena riga se vanno a capo */
+.gruppo-cta { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+.gruppo-cta-centro { justify-content: center; }
+.gruppo-cta > .bottone { flex: 1 1 240px; }
+
+/* ============================================================
+   06. HEADER E NAVIGAZIONE
+   ============================================================ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--medio), box-shadow var(--medio), background var(--medio);
+}
+.header.scrollato {
+  border-bottom-color: var(--linea);
+  box-shadow: 0 1px 20px rgba(35,35,37,.06);
+  background: rgba(255,255,255,.94);
+}
+
+.header-interno {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--altezza-header);
+  gap: var(--sp-4);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-size: 1.32rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+}
+.logo .logo-marchio {
+  font-family: var(--font-label);
+  font-size: 0.56rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--rosa-testo);
+}
+
+.nav {
+  position: fixed;
+  inset: var(--altezza-header) 0 0 0;
+  background: var(--bianco);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding: var(--sp-6) var(--pad-lato) var(--sp-8);
+  transform: translateY(-8px);
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  transition: opacity var(--medio), transform var(--medio), visibility var(--medio);
+}
+.menu-aperto { overflow: hidden; }
+.menu-aperto .nav { opacity: 1; visibility: visible; transform: none; }
+
+.nav a {
+  font-family: var(--font-label);
+  font-size: 0.84rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--linea);
+  transition: color var(--veloce);
+}
+.nav a:hover, .nav a[aria-current="page"] { color: var(--rosa-testo); }
+.nav .nav-cta { margin-top: var(--sp-6); border-bottom: 0; }
+
+.menu-toggle {
+  display: grid;
+  place-content: center;
+  gap: 6px;
+  width: 46px; height: 46px;
+  margin-right: -10px;
+}
+.menu-toggle span {
+  display: block;
+  width: 22px; height: 1.5px;
+  background: var(--testo);
+  transition: transform var(--medio), opacity var(--veloce);
+}
+.menu-aperto .menu-toggle span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.menu-aperto .menu-toggle span:nth-child(2) { opacity: 0; }
+.menu-aperto .menu-toggle span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+/* ============================================================
+   07. HERO
+   ------------------------------------------------------------
+   Mobile : immagine a tutta larghezza con velatura elegante,
+            messaggio subito leggibile e altezza contenuta.
+   Desktop: impaginazione editoriale su due colonne.
+   ============================================================ */
+/* overflow: hidden → l'immagine (in position:absolute) resta sempre
+   dentro la hero e non può sconfinare nella sezione sottostante. */
+.hero { position: relative; background: var(--avorio); overflow: hidden; }
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 60% 30%;
+}
+/* Velatura: scurisce quanto basta per il testo, senza spegnere la foto */
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(24,20,21,.62) 0%, rgba(24,20,21,.48) 45%, rgba(24,20,21,.78) 100%);
+}
+
+/* Altezza contenuta su mobile: la CTA principale deve restare
+   visibile senza scorrere, sopra la barra fissa in basso. */
+.hero-interno {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: center;
+  min-height: 68svh;
+  padding-block: var(--sp-7) var(--sp-8);
+  color: var(--bianco);
+}
+.hero .sopratitolo { color: var(--rosa); }
+.hero-titolo {
+  color: var(--bianco);
+  font-size: clamp(2.6rem, 12vw, 4rem);
+  font-weight: 500;
+  max-width: 14ch;
+}
+.hero-tagline {
+  margin-top: var(--sp-4);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,.92);
+  max-width: 40ch;
+}
+
+.hero-badge {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-5);
+}
+/* Fondo scuro velato: le stelline restano leggibili anche
+   quando cadono sopra una zona chiara della fotografia. */
+.badge-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--bianco);
+  background: rgba(20,17,18,.42);
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: var(--r-sm);
+  padding: 8px 13px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.badge-rating .stelle { color: var(--rosa); letter-spacing: .06em; }
+
+.hero-cta { margin-top: var(--sp-6); }
+.hero .bottone-contorno { border-color: rgba(255,255,255,.5); color: var(--bianco); }
+.hero .bottone-contorno:hover { background: var(--bianco); color: var(--scuro); border-color: var(--bianco); }
+.hero-nota {
+  margin-top: var(--sp-5);
+  font-size: 0.82rem;
+  color: rgba(255,255,255,.78);
+}
+
+/* ============================================================
+   08. FASCE CTA E BANNER
+   ============================================================ */
+/* La consulenza è un BLOCCO INDIPENDENTE: una card scura arrotondata
+   che "galleggia" su una fascia chiara. Così c'è spazio bianco tra hero
+   e consulenza e la card non si fonde più con la foto della hero. */
+.banner-offerta {
+  background: var(--bianco);
+  padding-block: var(--sp-8);
+}
+.banner-interno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-5);
+  text-align: center;
+  padding: var(--sp-8) var(--sp-6);
+  background: var(--scuro);
+  color: var(--bianco);
+  border-radius: var(--r-md);
+  box-shadow: var(--ombra-2);
+}
+.banner-testo { margin: 0; display: flex; flex-direction: column; gap: var(--sp-3); }
+.banner-titolo {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 5vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--bianco);
+}
+.banner-titolo em { font-style: normal; color: var(--rosa); }
+.banner-sotto {
+  margin: 0;
+  font-size: .98rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,.72);
+  max-width: 52ch;
+}
+.banner-interno .bottone { width: 100%; max-width: 360px; }
+
+/* Fascia CTA ricorrente prima del footer */
+.fascia-cta {
+  background: var(--rosa-tenue);
+  border-block: 1px solid var(--rosa-velo);
+  text-align: center;
+}
+.fascia-cta-interno { padding-block: var(--sp-9); }
+.fascia-cta .testo-guida { margin: var(--sp-5) auto var(--sp-7); }
+
+/* ============================================================
+   09. SERVIZI (ACCORDION)
+   ============================================================ */
+.griglia-servizi {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-card);
+  align-items: start;
+}
+
+.card-servizio {
+  background: var(--bianco);
+  border: 1px solid var(--linea);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--ombra-1);
+  transition: box-shadow var(--medio), transform var(--medio), border-color var(--medio);
+}
+.card-servizio:hover {
+  box-shadow: var(--ombra-2);
+  transform: translateY(-3px);
+  border-color: var(--rosa-velo);
+}
+.card-servizio.aperta {
+  box-shadow: var(--ombra-2);
+  border-color: var(--rosa-velo);
+  transform: none;
+}
+
+/* Copertina fotografica: stessa proporzione per tutte le card
+   (aspect-ratio fisso + object-fit: cover) → stessa altezza immagine.
+   Gli angoli superiori sono arrotondati dall'overflow della card. */
+.card-cover {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--avorio);
+  cursor: pointer;
+}
+.card-cover picture { display: block; width: 100%; height: 100%; }
+.card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--curva);
+}
+.card-servizio:hover .card-cover img { transform: scale(1.05); }
+
+.card-heading { margin: 0; font: inherit; text-transform: none; letter-spacing: 0; }
+
+/* Icona e titolo sulla prima riga, descrizione a tutta larghezza
+   sotto: così il testo non resta schiacciato in una colonna stretta. */
+.card-testa {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--sp-3) var(--sp-4);
+  width: 100%;
+  padding: var(--sp-5);
+  text-align: left;
+}
+/* Posizionamento per numero di linea: dentro un <button> le aree
+   con nome non spannano in modo affidabile. */
+.card-icona       { grid-column: 1; grid-row: 1; }
+.card-titolo      { grid-column: 2; grid-row: 1; }
+.card-piu         { grid-column: 3; grid-row: 1; }
+.card-sottotitolo { grid-column: 1 / -1; grid-row: 2; }
+
+/* Icona: cerchio tenue, si accende quando la card è aperta */
+.card-icona {
+  flex-shrink: 0;
+  width: 52px; height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--rosa-tenue);
+  color: var(--rosa-testo);
+  transition: background var(--medio), color var(--medio), transform var(--medio);
+}
+.card-icona svg { width: 23px; height: 23px; }
+.card-servizio:hover .card-icona { transform: scale(1.06); }
+.card-servizio.aperta .card-icona { background: var(--rosa); color: var(--scuro); }
+
+.card-titolo {
+  font-family: var(--font-label);
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  line-height: 1.4;
+}
+.card-sottotitolo {
+  /* Riserva 2 righe fisse: le card chiuse restano tutte alte uguali
+     anche quando la descrizione va a capo su una sola riga. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(2 * 1.6em);
+  font-family: var(--font-corpo);
+  font-size: 0.86rem;
+  line-height: 1.6;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--testo-soft);
+}
+
+/* Indicatore + / − */
+.card-piu { position: relative; flex-shrink: 0; width: 15px; height: 15px; }
+.card-piu::before, .card-piu::after {
+  content: ""; position: absolute; background: var(--testo-soft);
+  transition: transform var(--medio), background var(--veloce);
+}
+.card-piu::before { inset: 7px 0; }
+.card-piu::after  { inset: 0 7px; }
+.card-servizio.aperta .card-piu::after { transform: scaleY(0); }
+.card-servizio.aperta .card-piu::before { background: var(--rosa-testo); }
+
+.card-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--medio); }
+.panel-interno { overflow: hidden; min-height: 0; }
+.card-servizio.aperta .card-panel { grid-template-rows: 1fr; }
+
+.listino {
+  list-style: none;
+  padding: var(--sp-2) var(--sp-5) 0;
+  border-top: 1px solid var(--linea);
+}
+.tratt-riga {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  padding: 13px 0;
+  border-bottom: 1px solid var(--linea);
+  font-size: 0.9rem;
+}
+.tratt-riga:last-child { border-bottom: 0; }
+/* Sotto-intestazione di gruppo dentro un listino (es. Viso / Corpo / Uomo) */
+.tratt-gruppo {
+  margin-top: var(--sp-4);
+  padding: 10px 0 7px;
+  border-bottom: 1px solid var(--linea);
+  font-family: var(--font-label);
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--rosa-testo);
+}
+.tratt-gruppo:first-child { margin-top: 0; }
+.tratt-nome { font-weight: 500; }
+.tratt-durata {
+  display: inline-block;
+  margin-left: var(--sp-2);
+  font-size: 0.76rem;
+  color: var(--testo-soft);
+  white-space: nowrap;
+}
+.tratt-filo { flex: 1; }
+.tratt-prezzo {
+  font-family: var(--font-label);
+  font-size: 0.86rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.prezzo-pieno { color: var(--testo-soft); font-weight: 400; margin-right: 5px; }
+
+.tratt-badge {
+  display: inline-block;
+  margin-left: var(--sp-2);
+  padding: 3px 9px;
+  border-radius: var(--r-xs);
+  background: var(--rosa);
+  color: var(--scuro);
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  vertical-align: middle;
+}
+.tratt-evidenza {
+  margin: var(--sp-3) 0;
+  padding: var(--sp-4);
+  background: var(--rosa-tenue);
+  border: 1px solid var(--rosa-velo);
+  border-radius: var(--r-sm);
+}
+.tratt-evidenza .tratt-prezzo { color: var(--rosa-testo); }
+
+.listino-azioni {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+  padding: var(--sp-5);
+  border-top: 1px solid var(--linea);
+  background: var(--avorio);
+}
+.listino-azioni .bottone { flex: 1 1 190px; min-height: 48px; padding: 13px 20px; font-size: 0.7rem; }
+
+/* ============================================================
+   10. CONSULENZA LASER
+   ============================================================ */
+.consulenza { background: var(--scuro); color: #E9E7E6; }
+.consulenza-interno { display: grid; gap: var(--sp-8); padding-block: var(--pad-sezione); }
+.consulenza h2 { color: var(--bianco); }
+.consulenza-evidenza { color: var(--rosa); font-style: italic; }
+.consulenza .testo-guida { color: rgba(255,255,255,.72); margin-top: var(--sp-5); }
+
+.consulenza-punti { list-style: none; display: grid; gap: var(--sp-3); margin: var(--sp-7) 0; }
+.consulenza-punti li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  font-size: 0.94rem;
+  color: rgba(255,255,255,.86);
+}
+.consulenza-punti li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px; height: 6px;
+  margin-top: 11px;
+  border-radius: 50%;
+  background: var(--rosa);
+}
+
+.consulenza-prezzo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-6);
+  margin-bottom: var(--sp-6);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: var(--r-sm);
+  background: rgba(255,255,255,.04);
+}
+.consulenza-prezzo .valore {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--rosa);
+  line-height: 1;
+}
+.consulenza-prezzo .etichetta { font-size: .8rem; color: rgba(255,255,255,.6); }
+
+.consulenza-media img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  box-shadow: var(--ombra-3);
+}
+
+/* ============================================================
+   10-bis. CONOSCI IL TEAM
+   Due colonne come la consulenza. Nel codice la foto sta PRIMA
+   del testo (ordine mobile: titolo, foto, testo); su desktop
+   l'ordine viene invertito con `order` (testo a sinistra).
+   ============================================================ */
+.team-interno { display: grid; gap: var(--sp-8); }
+
+.team-testo h3 {                 /* stessa resa serif dei titoli blog: caldo, non etichetta */
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.3rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  color: var(--testo);
+  margin-bottom: var(--sp-5);
+}
+.team-testo p {
+  color: var(--testo-soft);
+  font-size: 1.02rem;
+  line-height: 1.85;
+  max-width: 60ch;
+}
+.team-chiusura {                 /* la frase di benvenuto in evidenza */
+  margin-top: var(--sp-5);
+  color: var(--testo);
+  font-weight: 600;
+}
+
+.team-media { margin: 0; }
+.team-media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  box-shadow: var(--ombra-3);
+}
+
+/* ============================================================
+   11. RECENSIONI
+   ============================================================ */
+.rating-riquadri {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-8);
+}
+/* Affiancate anche su mobile: due riquadri alti sprecavano
+   mezzo schermo e allontanavano le recensioni vere. */
+.rating-riquadro {
+  flex: 1 1 140px;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: var(--sp-5) var(--sp-4);
+  background: var(--bianco);
+  border: 1px solid var(--linea);
+  border-radius: var(--r-md);
+  box-shadow: var(--ombra-1);
+}
+.rating-voto { font-family: var(--font-display); font-size: 2.2rem; font-weight: 600; line-height: 1; }
+.rating-stelle { color: var(--rosa-scuro); letter-spacing: .14em; font-size: .82rem; }
+.rating-fonte { font-size: .76rem; line-height: 1.5; color: var(--testo-soft); text-align: center; }
+
+.griglia-recensioni { display: grid; grid-template-columns: 1fr; gap: var(--gap-card); }
+.card-recensione {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-6);
+  background: var(--bianco);
+  border: 1px solid var(--linea);
+  border-radius: var(--r-md);
+  box-shadow: var(--ombra-1);
+  transition: box-shadow var(--medio), transform var(--medio);
+}
+.card-recensione:hover { box-shadow: var(--ombra-2); transform: translateY(-3px); }
+.recensione-stelle { color: var(--rosa-scuro); letter-spacing: .18em; font-size: .85rem; }
+.recensione-testo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--testo);
+  margin: 0;
+}
+.recensione-autore {
+  margin-top: auto;
+  font-family: var(--font-label);
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+.recensione-autore span { color: var(--testo-soft); font-weight: 400; }
+
+/* ============================================================
+   12. GALLERY, CONFRONTI, SLIDER E LIGHTBOX
+   ============================================================ */
+
+.blocco-risultati { padding-block: var(--pad-sezione); border-bottom: 1px solid var(--linea); }
+.blocco-risultati:nth-of-type(even) { background: var(--avorio); }
+.risultati-testa { max-width: 620px; margin-bottom: var(--sp-7); }
+.risultati-testa .testo-guida { margin-top: var(--sp-4); }
+.risultati-azioni { margin-top: var(--sp-7); }
+
+/* --- Card immagine (confronti e gallery) ---
+   Tutte le card condividono la stessa struttura: riquadro immagine a
+   rapporto fisso 4:5 + didascalia che occupa lo spazio restante.
+   Con la griglia in "stretch" le card di una riga risultano alte
+   uguali: nessun effetto masonry. */
+.card-media {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* niente height:100%: bloccherebbe lo stretch dentro lo slider
+     flex del mobile. Ci pensano griglia e slider ad allineare. */
+  margin: 0;
+  background: var(--bianco);
+  border: 1px solid var(--linea);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--ombra-1);
+  transition: box-shadow var(--medio), transform var(--medio);
+}
+.card-media:hover { box-shadow: var(--ombra-2); transform: translateY(-3px); }
+
+.card-media .media-cornice {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--avorio);
+  border: 0;
+  padding: 0;
+  cursor: zoom-in;
+}
+.card-media .media-cornice picture { display: block; width: 100%; height: 100%; }
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--curva);
+}
+.card-media:hover img { transform: scale(1.035); }
+
+/* Eccezione: questa composizione Prima/Dopo ha le etichette stampate
+   sui bordi, quindi il ritaglio le taglierebbe via. Resta intera nello
+   stesso riquadro 4:5, così l'altezza della card non cambia. */
+.media-intera img { object-fit: contain; }
+.media-intera:hover img { transform: none; }
+
+/* Lente che compare in hover */
+.media-cornice::after {
+  content: "";
+  position: absolute;
+  right: var(--sp-3); bottom: var(--sp-3);
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.92) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F2F31' stroke-width='1.8'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-4.3-4.3M11 8v6M8 11h6'/%3E%3C/svg%3E") center/19px no-repeat;
+  box-shadow: var(--ombra-1);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--medio), transform var(--medio);
+  pointer-events: none;
+}
+.card-media:hover .media-cornice::after,
+.media-cornice:focus-visible::after { opacity: 1; transform: none; }
+
+/* Occupa lo spazio verticale che avanza: così il fondo della card è
+   sempre alla stessa altezza anche con didascalie di lunghezza diversa. */
+.media-didascalia { flex: 1; padding: var(--sp-5); }
+.confronto-etichetta {
+  display: inline-block;
+  margin-bottom: var(--sp-3);
+  padding: 4px 11px;
+  border-radius: var(--r-xs);
+  background: var(--scuro);
+  color: var(--bianco);
+  font-family: var(--font-label);
+  font-size: .58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+}
+.confronto-etichetta-chiara { background: var(--rosa-tenue); color: var(--rosa-testo); }
+.confronto-titolo { font-size: .82rem; margin-bottom: var(--sp-2); }
+.confronto-nota { font-size: .88rem; color: var(--testo-soft); margin: 0; }
+
+/* --- Griglie --- */
+/* "stretch" pareggia le card della stessa riga; "grid-auto-rows: 1fr"
+   pareggia anche le righe fra loro, così una card rimasta sola in
+   fondo resta alta quanto le altre. */
+.griglia-confronti,
+.griglia-gallery {
+  display: grid;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+}
+.griglia-confronti { grid-template-columns: 1fr; gap: var(--gap-card); }
+.griglia-gallery   { grid-template-columns: repeat(2, 1fr); gap: var(--sp-4); }
+
+/* --- Slider a scorrimento su mobile ---
+   Su schermi stretti la griglia diventa un carosello con swipe:
+   si vedono immagini grandi invece di miniature compresse. */
+@media (max-width: 767px) {
+  .slider-mobile {
+    display: flex;
+    gap: var(--sp-4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--pad-lato);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* esce dal contenitore per arrivare a filo schermo */
+    margin-inline: calc(var(--pad-lato) * -1);
+    padding-inline: var(--pad-lato);
+    padding-bottom: var(--sp-2);
+  }
+  .slider-mobile::-webkit-scrollbar { display: none; }
+  .slider-mobile > * {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+  .slider-mobile > *:last-child { margin-right: var(--pad-lato); }
+  .slider-suggerimento {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-top: var(--sp-4);
+    font-family: var(--font-label);
+    font-size: .62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    color: var(--testo-soft);
+  }
+  .slider-suggerimento::after { content: "→"; animation: scorriDito 2.2s ease-in-out infinite; }
+}
+@media (min-width: 768px) { .slider-suggerimento { display: none; } }
+
+@keyframes scorriDito {
+  0%, 100% { transform: translateX(0); opacity: .55; }
+  50%      { transform: translateX(5px); opacity: 1; }
+}
+
+/* Riquadro "foto in arrivo": usa lo stesso contenitore media delle
+   altre card (rapporto 4:5), così la griglia resta allineata anche
+   quando finisce da solo su una riga. */
+.placeholder-media {
+  display: grid;
+  place-items: center;
+  padding: var(--sp-5);
+  text-align: center;
+  cursor: default;
+  background: var(--rosa-tenue);
+  box-shadow: inset 0 0 0 1px var(--rosa-velo);
+  color: var(--rosa-testo);
+  font-family: var(--font-label);
+  font-size: .66rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  line-height: 1.8;
+}
+.placeholder-media::after { content: none; }   /* niente lente d'ingrandimento */
+
+.nota-risultati {
+  max-width: 68ch;
+  margin-top: var(--sp-7);
+  padding-left: var(--sp-4);
+  border-left: 2px solid var(--rosa-velo);
+  font-size: .84rem;
+  line-height: 1.75;
+  color: var(--testo-soft);
+}
+
+/* --- Lightbox --- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: var(--sp-5);
+  background: rgba(20,17,18,.94);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--medio), visibility var(--medio);
+}
+.lightbox.aperta { opacity: 1; visibility: visible; }
+.lightbox-figura {
+  margin: 0;
+  max-width: min(1100px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  transform: scale(.97);
+  transition: transform var(--medio);
+}
+.lightbox.aperta .lightbox-figura { transform: none; }
+.lightbox-figura picture { display: contents; }
+.lightbox-figura img {
+  max-height: 78svh;
+  width: auto;
+  margin-inline: auto;
+  border-radius: var(--r-md);
+  box-shadow: var(--ombra-3);
+}
+.lightbox-didascalia {
+  text-align: center;
+  font-size: .88rem;
+  color: rgba(255,255,255,.82);
+}
+.lightbox-chiudi {
+  position: absolute;
+  top: var(--sp-4); right: var(--sp-4);
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  color: var(--bianco);
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: background var(--veloce), transform var(--veloce);
+}
+.lightbox-chiudi:hover { background: rgba(255,255,255,.24); transform: rotate(90deg); }
+
+/* ============================================================
+   13. BLOG
+   ============================================================ */
+.griglia-articoli { display: grid; grid-template-columns: 1fr; gap: var(--sp-6); }
+
+.card-articolo {
+  display: flex;
+  flex-direction: column;
+  background: var(--bianco);
+  border: 1px solid var(--linea);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--ombra-1);
+  transition: box-shadow var(--medio), transform var(--medio);
+}
+.card-articolo:hover { box-shadow: var(--ombra-2); transform: translateY(-4px); }
+.articolo-media { display: block; overflow: hidden; }
+.articolo-media img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform 1.1s var(--curva);
+}
+.card-articolo:hover .articolo-media img { transform: scale(1.045); }
+
+.articolo-corpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-6);
+}
+.articolo-categoria {
+  font-family: var(--font-label);
+  font-size: .6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--rosa-testo);
+}
+.articolo-titolo {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.25;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.articolo-titolo a { text-decoration: none; transition: color var(--veloce); }
+.articolo-titolo a:hover { color: var(--rosa-testo); }
+.articolo-estratto { font-size: .92rem; color: var(--testo-soft); margin: 0; }
+.articolo-corpo .link-freccia { margin-top: auto; align-self: flex-start; }
+
+/* --- Pagina articolo --- */
+.briciole {
+  padding-block: var(--sp-4);
+  font-size: .76rem;
+  color: var(--testo-soft);
+}
+.briciole a { text-decoration: none; }
+.briciole a:hover { color: var(--rosa-testo); }
+.briciole span { margin-inline: 7px; opacity: .5; }
+
+.articolo-testa { text-align: center; padding-block: var(--sp-7) var(--sp-6); }
+.articolo-testa h1 { font-size: clamp(2rem, 8vw, 3rem); }
+.articolo-meta { margin-top: var(--sp-5); font-size: .82rem; color: var(--testo-soft); }
+.articolo-copertina { margin-bottom: var(--sp-8); }
+.articolo-copertina img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  box-shadow: var(--ombra-1);
+}
+
+.articolo-contenuto { padding-bottom: var(--sp-9); font-size: 1.04rem; line-height: 1.85; }
+.articolo-contenuto h2 {
+  margin: var(--sp-8) 0 var(--sp-4);
+  font-size: clamp(1.5rem, 5vw, 1.9rem);
+}
+.articolo-contenuto h3 {
+  margin: var(--sp-6) 0 var(--sp-3);
+  font-size: .82rem;
+  color: var(--rosa-testo);
+}
+.articolo-contenuto p { margin-bottom: 1.25em; }
+.articolo-contenuto ul, .articolo-contenuto ol { margin: 0 0 1.4em 1.3em; }
+.articolo-contenuto li { margin-bottom: .6em; }
+.articolo-contenuto strong { font-weight: 600; }
+.articolo-contenuto a:not(.bottone):not(.link-freccia) {
+  color: var(--rosa-testo);
+  text-underline-offset: 3px;
+}
+
+.riquadro-info {
+  margin: var(--sp-7) 0;
+  padding: var(--sp-6);
+  background: var(--avorio);
+  border: 1px solid var(--linea);
+  border-left: 3px solid var(--rosa);
+  border-radius: var(--r-sm);
+  font-size: .96rem;
+}
+.riquadro-info h3 { margin-top: 0; }
+
+.cta-articolo {
+  margin: var(--sp-8) 0 var(--sp-5);
+  padding: var(--sp-8) var(--sp-6);
+  text-align: center;
+  background: var(--rosa-tenue);
+  border: 1px solid var(--rosa-velo);
+  border-radius: var(--r-md);
+}
+.cta-articolo h2 { margin: 0 0 var(--sp-3); font-size: 1.6rem; }
+.cta-articolo p { color: var(--testo-soft); margin-bottom: var(--sp-6); }
+
+/* ============================================================
+   14. CONTATTI
+   ============================================================ */
+.contatti-griglia { display: grid; grid-template-columns: 1fr; gap: var(--sp-8); }
+.contatto-blocco { margin-bottom: var(--sp-6); }
+.contatto-blocco h3 { margin-bottom: var(--sp-3); font-size: .7rem; color: var(--rosa-testo); }
+
+.link-tel {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--veloce);
+}
+.link-tel:hover { color: var(--rosa-testo); }
+
+.tabella-orari { width: 100%; max-width: 360px; border-collapse: collapse; font-size: .92rem; }
+.tabella-orari td { padding: 9px 0; border-bottom: 1px solid var(--linea); }
+.tabella-orari td:last-child { text-align: right; font-weight: 500; }
+.orario-chiuso td { color: var(--testo-soft); }
+.orario-chiuso td:last-child { font-weight: 400; }
+.orario-oggi td { font-weight: 700; color: var(--rosa-testo); }
+
+.contatti-mappa {
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--linea);
+  box-shadow: var(--ombra-1);
+}
+.contatti-mappa iframe { width: 100%; height: 340px; border: 0; }
+
+/* ============================================================
+   15. FOOTER
+   ============================================================ */
+.footer { background: var(--scuro); color: rgba(255,255,255,.68); font-size: .9rem; }
+.footer a { color: rgba(255,255,255,.68); text-decoration: none; transition: color var(--veloce); }
+.footer a:hover { color: var(--rosa); }
+
+.footer-griglia {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-7);
+  padding-block: var(--sp-9) var(--sp-7);
+}
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--bianco);
+  margin-bottom: var(--sp-3);
+}
+.footer-colonna h4 { margin-bottom: var(--sp-4); font-size: .66rem; letter-spacing: .18em; color: var(--rosa); }
+.footer-colonna ul { list-style: none; }
+.footer-colonna li, .footer-colonna p { margin-bottom: var(--sp-2); }
+.footer-nota { color: rgba(255,255,255,.46); line-height: 1.7; }
+.footer .bottone { margin-top: var(--sp-4); }
+
+.footer-fondo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding-block: var(--sp-5);
+  border-top: 1px solid rgba(255,255,255,.1);
+  font-size: .78rem;
+  color: rgba(255,255,255,.44);
+  text-align: center;
+}
+
+/* ============================================================
+   16. FLOTTANTI E BARRA MOBILE
+   ============================================================ */
+.flottanti {
+  position: fixed;
+  right: var(--sp-4);
+  bottom: 78px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.flottante {
+  position: relative;
+  width: 48px; height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--bianco);
+  transition: transform var(--medio), box-shadow var(--medio);
+}
+.flottante svg { width: 23px; height: 23px; }
+.flottante:hover { transform: translateY(-3px) scale(1.04); }
+
+/* Alone luminoso realizzato con uno pseudo-elemento: pulsa da solo
+   senza far "vibrare" l'ombra del pulsante. */
+.flottante::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: inherit;
+  filter: blur(9px);
+  opacity: .42;
+  z-index: -1;
+  transition: opacity var(--medio);
+}
+.flottante:hover::before { opacity: .72; }
+
+.flottante-wa { background: var(--wa); box-shadow: 0 4px 16px rgba(35,35,37,.2); }
+.flottante-wa::before { animation: aloneWa 3.4s ease-in-out infinite; }
+
+/* Su mobile il WhatsApp è già nella barra fissa in basso: qui resta
+   il solo Instagram, così i flottanti non coprono CTA e prezzi.
+   Su desktop (≥768px, in fondo al file) tornano visibili entrambi. */
+.flottante-wa { display: none; }
+.flottante-ig {
+  background: linear-gradient(135deg, #F9CE34 0%, #EE2A7B 52%, #6228D7 100%);
+  box-shadow: 0 4px 16px rgba(35,35,37,.2);
+}
+
+@keyframes aloneWa {
+  0%, 100% { opacity: .34; transform: scale(1); }
+  50%      { opacity: .68; transform: scale(1.09); }
+}
+
+.flottante-tip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(5px);
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  background: var(--scuro);
+  color: var(--bianco);
+  font-family: var(--font-label);
+  font-size: .62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: var(--ombra-1);
+  transition: opacity var(--veloce), transform var(--veloce);
+}
+.flottante:hover .flottante-tip { opacity: 1; transform: translateY(-50%); }
+
+/* Barra fissa mobile */
+.barra-mobile {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 95;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  background: var(--bianco);
+  border-top: 1px solid var(--linea);
+  box-shadow: 0 -4px 24px rgba(35,35,37,.1);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.barra-bottone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: 62px;
+  font-family: var(--font-label);
+  font-size: .74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  text-decoration: none;
+  transition: background var(--veloce);
+}
+.barra-bottone svg { width: 17px; height: 17px; }
+.barra-chiama { color: var(--testo); }
+.barra-chiama:hover { background: var(--avorio); }
+.barra-wa { background: var(--wa); color: var(--wa-testo); }
+.barra-wa:hover { background: var(--wa-scuro); color: var(--bianco); }
+
+/* ============================================================
+   17. ANIMAZIONI
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .75s var(--curva), transform .75s var(--curva);
+}
+.reveal.visibile { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   18. MEDIA QUERY
+   ============================================================ */
+
+/* ---- ≥ 600px : mobile largo ---- */
+@media (min-width: 600px) {
+  :root { --pad-lato: var(--sp-6); }
+  .griglia-gallery { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---- ≥ 768px : tablet ---- */
+@media (min-width: 768px) {
+  :root {
+    --pad-sezione: var(--sp-10);
+    --pad-lato: var(--sp-7);
+    --gap-card: var(--sp-6);
+    --altezza-header: 76px;
+  }
+
+  /* NB: il menu orizzontale parte da 1024px (vedi blocco successivo).
+     Fra 768 e 1023 le sei voci più la CTA non stanno in riga, quindi
+     su tablet restano hamburger e barra fissa in basso. */
+
+  /* Hero editoriale su due colonne: l'immagine resta nitida
+     perché occupa una colonna e non l'intera larghezza. */
+  .hero-media {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 46%;
+  }
+  /* Su desktop il pannello è più largo del rapporto della foto (2:3),
+     quindi "cover" scala sulla larghezza e ritaglia SOLO in verticale:
+     l'unica coordinata che agisce è la seconda.
+     Con 58% si toglie dall'alto la plafoniera, che prima occupava circa
+     un terzo dell'inquadratura, e il volto dell'estetista risale verso
+     il centro ottico. La prima coordinata indica dove si trova il
+     soggetto e torna utile solo se il pannello scende sotto il 2:3. */
+  .hero-media img { object-position: 62% 58%; }
+  .hero-media::after {
+    background: linear-gradient(90deg, var(--avorio) 0%, rgba(251,250,249,.35) 32%, rgba(24,20,21,.12) 100%);
+  }
+  .hero-interno { min-height: 640px; color: var(--testo); padding-block: var(--sp-10); }
+  .hero-contenuto { max-width: 54%; }
+  .hero .sopratitolo { color: var(--rosa-testo); }
+  .hero-titolo { color: var(--testo); font-size: clamp(3rem, 5.4vw, 4.4rem); }
+  .hero-tagline { color: var(--testo-soft); }
+  .badge-rating {
+    color: var(--testo);
+    background: rgba(255,255,255,.72);
+    border-color: var(--linea);
+    box-shadow: var(--ombra-1);
+  }
+  .badge-rating .stelle { color: var(--rosa-testo); }
+  .hero-nota { color: var(--testo-soft); }
+  /* Nell'hero i due pulsanti seguono la lunghezza del testo:
+     forzarli alla stessa larghezza mandava a capo la CTA principale. */
+  .hero-cta > .bottone { flex: 0 1 auto; }
+  .hero .bottone-contorno { border-color: rgba(47,47,49,.28); color: var(--testo); }
+  .hero .bottone-contorno:hover { background: var(--testo); color: var(--bianco); border-color: var(--testo); }
+
+  .banner-interno {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: var(--sp-8);
+    padding: var(--sp-7) var(--sp-8);
+  }
+  .banner-interno .bottone { width: auto; flex-shrink: 0; }
+
+  .griglia-servizi   { grid-template-columns: repeat(2, 1fr); }
+  .griglia-recensioni{ grid-template-columns: repeat(3, 1fr); }
+  .griglia-articoli  { grid-template-columns: repeat(3, 1fr); }
+  .griglia-confronti { grid-template-columns: repeat(2, 1fr); }
+
+  /* align-items: start → l'immagine si allinea in alto con il titolo,
+     invece di "galleggiare" al centro lasciando un vuoto accanto all'H2. */
+  .consulenza-interno { grid-template-columns: 1.1fr .9fr; align-items: start; gap: var(--sp-10); }
+  /* min-width: 0 azzera il minimo intrinseco delle colonne grid: senza,
+     un contenuto non comprimibile (numero grande, pulsante largo) farebbe
+     tracimare la colonna testo su quella immagine → sovrapposizione. */
+  .consulenza-testo,
+  .consulenza-media { min-width: 0; }
+
+  /* Team: due colonne. Testo a sinistra, foto a destra (order inverte
+     l'ordine del codice, che su mobile serve per titolo→foto→testo). */
+  .team-interno { grid-template-columns: 1.1fr .9fr; align-items: center; gap: var(--sp-10); }
+  .team-interno .team-testo { order: 1; }
+  .team-interno .team-media { order: 2; }
+  .team-testo,
+  .team-media { min-width: 0; }
+
+  .contatti-griglia { grid-template-columns: 1fr 1fr; }
+  .contatti-mappa iframe { height: 100%; min-height: 460px; }
+
+  .footer-griglia { grid-template-columns: 1.7fr 1fr 1fr 1fr; }
+  .footer-fondo { flex-direction: row; justify-content: space-between; text-align: left; }
+
+  .articolo-contenuto { font-size: 1.08rem; }
+}
+
+/* ---- ≥ 1024px : desktop ---- */
+@media (min-width: 1024px) {
+  :root { --pad-sezione: var(--sp-11); }
+  .griglia-servizi { grid-template-columns: repeat(3, 1fr); }
+  .hero-interno { min-height: 700px; }
+  .hero-contenuto { max-width: 50%; }
+
+  /* Da qui il menu sta in riga: via hamburger e barra fissa. */
+  body { padding-bottom: 0; }
+  .barra-mobile { display: none; }
+  .menu-toggle { display: none; }
+
+  .nav {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--sp-4);   /* passo stretto: a 1024px le voci sono sei */
+    padding: 0;
+    background: transparent;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    overflow: visible;
+  }
+  .nav a { padding: 0; border-bottom: 0; font-size: .74rem; letter-spacing: .12em; }
+  .nav .nav-cta { margin-top: 0; min-height: 46px; padding: 12px 20px; }
+  /* Margine di sicurezza a 1024px: se il serif non carica, il
+     carattere di ripiego è più largo e la riga andrebbe a filo. */
+  .logo { font-size: 1.18rem; }
+
+  .flottanti { right: var(--sp-6); bottom: var(--sp-6); }
+  .flottante { width: 54px; height: 54px; }
+  .flottante svg { width: 25px; height: 25px; }
+  .flottante-wa { display: grid; }   /* qui non c'è più la barra fissa */
+}
+
+/* ---- ≥ 1280px : più respiro fra le voci di menu ---- */
+@media (min-width: 1280px) {
+  .nav { gap: var(--sp-6); }
+  .nav a { letter-spacing: .13em; }
+  .nav .nav-cta { padding: 12px 22px; }
+  .logo { font-size: 1.32rem; }
+}
+
+/* ---- ≥ 1280px ---- */
+@media (min-width: 1280px) {
+  :root { --pad-lato: var(--sp-8); }
+}
+
+/* ============================================================
+   19. CONSENSO COOKIE · MAPPA · FORM · PAGINE LEGALI
+   ============================================================ */
+
+/* --- Banner cookie --- */
+.cookie-banner {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 120;
+  background: var(--scuro);
+  color: rgba(255,255,255,.9);
+  padding: var(--sp-5) var(--pad-lato);
+  box-shadow: 0 -6px 34px rgba(0,0,0,.28);
+  transform: translateY(110%);
+  transition: transform var(--medio);
+}
+.cookie-banner.visibile { transform: none; }
+.cookie-interno {
+  max-width: 1120px;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-4) var(--sp-6);
+}
+.cookie-testo { flex: 1 1 300px; margin: 0; font-size: .88rem; line-height: 1.6; }
+.cookie-testo a { color: var(--rosa); text-underline-offset: 3px; }
+.cookie-azioni { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+.cookie-azioni .bottone { min-height: 46px; padding: 12px 24px; font-size: .72rem; }
+/* su mobile la barra fissa in basso non deve coprire il banner */
+@media (max-width: 767px) { .cookie-banner { bottom: 62px; } }
+
+/* --- Mappa gated (placeholder finché non c'è consenso) --- */
+.mappa-placeholder {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: var(--sp-4);
+  height: 100%;
+  min-height: 340px;
+  padding: var(--sp-6);
+  text-align: center;
+  background: var(--grigio-bg);
+  color: var(--testo-soft);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+.mappa-placeholder .gruppo-cta { justify-content: center; }
+.mappa-placeholder .bottone { min-height: 46px; }
+
+/* --- Form questionario --- */
+.form-consulenza { display: grid; gap: var(--sp-5); max-width: 640px; }
+.campo { display: grid; gap: var(--sp-2); }
+.campo > span { font-family: var(--font-label); font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--testo); }
+.campo input, .campo textarea {
+  font: inherit;
+  padding: 13px 15px;
+  color: var(--testo);
+  background: var(--bianco);
+  border: 1px solid var(--linea);
+  border-radius: var(--r-sm);
+  transition: border-color var(--veloce), box-shadow var(--veloce);
+}
+.campo input:focus, .campo textarea:focus {
+  outline: none;
+  border-color: var(--rosa-scuro);
+  box-shadow: 0 0 0 3px var(--rosa-tenue);
+}
+.campo textarea { min-height: 120px; resize: vertical; }
+.consenso-check {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: flex-start;
+  font-size: .88rem;
+  line-height: 1.55;
+  color: var(--testo-soft);
+}
+.consenso-check input { margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--rosa-scuro); }
+.consenso-check a { color: var(--rosa-testo); text-underline-offset: 2px; }
+.form-nota { font-size: .8rem; color: var(--testo-soft); line-height: 1.6; }
+
+/* --- Pagine legali (riusano .articolo-contenuto) --- */
+.legale-testa { text-align: left; padding-block: var(--sp-7) var(--sp-5); }
+.legale-testa h1 { font-size: clamp(1.9rem, 6vw, 2.6rem); }
+.legale-aggiornato { margin-top: var(--sp-4); font-size: .82rem; color: var(--testo-soft); }
+.dato-tabella { width: 100%; border-collapse: collapse; margin: var(--sp-4) 0 var(--sp-6); font-size: .92rem; }
+.dato-tabella th, .dato-tabella td { text-align: left; vertical-align: top; padding: 11px 14px; border: 1px solid var(--linea); }
+.dato-tabella th { background: var(--avorio); font-family: var(--font-label); font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; }
+/* segnaposto da completare: evidenziato così il cliente li trova subito */
+.segnaposto { background: #FFF4CE; border: 1px solid #E6CE7A; color: #6A571A; padding: 1px 6px; border-radius: 3px; }
