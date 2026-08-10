@@ -364,6 +364,11 @@ p:last-child { margin-bottom: 0; }
 .nav {
   position: fixed;
   inset: var(--altezza-header) 0 0 0;
+  /* Il .header ha backdrop-filter, che crea un containing block per
+     i figli position:fixed → senza altezza esplicita il pannello si
+     dimensiona sull'header (68px) invece che sul viewport, mostrando
+     solo la prima voce. Con 100dvh l'altezza è viewport-relative. */
+  height: calc(100dvh - var(--altezza-header));
   background: var(--bianco);
   display: flex;
   flex-direction: column;
