@@ -962,6 +962,12 @@ p:last-child { margin-bottom: 0; }
 .media-intera img { object-fit: contain; }
 .media-intera:hover img { transform: none; }
 
+/* Diptico Prima/Dopo affiancato: la cornice diventa quadrata così
+   il crop non mangia i due lati del confronto (il 4/5 tagliava sx/dx).
+   Specificità: .card-media .media-cornice imposta 4/5, quindi qui va
+   pareggiata la specificità (2 classi) e messa dopo nel file. */
+.card-media .cornice-confronto { aspect-ratio: 1 / 1; }
+
 /* Lente che compare in hover */
 .media-cornice::after {
   content: "";
@@ -996,6 +1002,32 @@ p:last-child { margin-bottom: 0; }
   letter-spacing: .15em;
 }
 .confronto-etichetta-chiara { background: var(--rosa-tenue); color: var(--rosa-testo); }
+
+/* Etichette "Prima" / "Dopo" sovrapposte al diptico:
+   quando la foto originale è un unico scatto affiancato (sx=prima, dx=dopo)
+   senza scritte impresse, questi badge in absolute rendono immediato leggere
+   il confronto senza dover ricorrere alla sola didascalia. */
+.badge-confronto {
+  position: absolute;
+  bottom: var(--sp-3);
+  z-index: 2;
+  padding: 6px 14px;
+  background: rgba(24, 20, 21, .72);
+  color: var(--bianco);
+  font-family: var(--font-label);
+  font-size: .62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  border-radius: var(--r-xs);
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+.badge-prima { left: var(--sp-3); }
+.badge-dopo  { right: var(--sp-3); }
+@media (min-width: 600px) {
+  .badge-confronto { font-size: .68rem; padding: 7px 16px; }
+}
 .confronto-titolo { font-size: .82rem; margin-bottom: var(--sp-2); }
 .confronto-nota { font-size: .88rem; color: var(--testo-soft); margin: 0; }
 

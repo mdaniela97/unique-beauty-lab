@@ -101,6 +101,16 @@
   ],
   "altezzaMax": 2000
  },
+ "prima-dopo-epilazione-laser-viso": {
+  "larghezze": [
+   800
+  ],
+  "sorgente": [
+   1170,
+   1154
+  ],
+  "altezzaMax": 789
+ },
  "team-unique-beauty-lab": {
   "larghezze": [
    640,
@@ -126,6 +136,18 @@
   "altezzaMax": 1067
  },
  "trattamento-viso-maschera": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   1600
+  ],
+  "altezzaMax": 1067
+ },
+ "pulizia-viso-cabina": {
   "larghezze": [
    640,
    1000,

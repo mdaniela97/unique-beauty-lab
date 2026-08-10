@@ -52,11 +52,13 @@ SORGENTI = {
     "prima-dopo-trattamento-viso-antieta": (ORIGINALI / "photo-output 3.jpeg", CONFRONTI),
     "prima-dopo-epilazione-laser-ascelle": (ORIGINALI / "prima-dopo-laser-ascelle.jpeg", CONFRONTI),
     "prima-dopo-epilazione-laser-schiena": (ORIGINALI / "prima-dopo-laser-schiena.jpeg", CONFRONTI),
+    "prima-dopo-epilazione-laser-viso":    (ORIGINALI / "prima-dopo-laser-peluria-viso.jpeg", CONFRONTI),
     # --- foto reale del team (le 3 titolari) ---
     "team-unique-beauty-lab":              (ORIGINALI / "team-3-persone.jpg", TEAM),
     # --- foto di repertorio: da sostituire con scatti del centro ---
     "epilazione-laser-cabina":             (STOCK / "laser1-hd.jpg", GALLERY),
     "trattamento-viso-maschera":           (STOCK / "viso1-hd.jpg",  GALLERY),
+    "pulizia-viso-cabina":                 (STOCK / "viso2-hd.jpg",  GALLERY),
     "massaggio-decontratturante":          (STOCK / "mass1-hd.jpg",  GALLERY),
     "massaggio-pietre-calde":              (STOCK / "mass2-hd.jpg",  GALLERY),
     "oli-essenziali-corpo":                (STOCK / "corpo1-hd.jpg", GALLERY),
