@@ -25,3 +25,9 @@ __pycache__/
 *.log
 .env
 .env.local
+
+# Foto sorgente originali/stock — NON devono finire nel deploy Netlify
+# (le varianti web sono in assets/img/, generate da strumenti/genera-immagini.py).
+# Nel caso vengano rispostate dentro il sito, il .gitignore le esclude.
+unique-beauty-lab-foto-originali/
+unique-beauty-lab-foto-stock/

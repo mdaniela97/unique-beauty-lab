@@ -29,6 +29,13 @@
   [headers.values]
     Cache-Control = "public, max-age=3600, must-revalidate"
 
+# --- Logo e favicon: rivalidano ---
+# Se sostituisci il logo del centro deve aggiornarsi subito ovunque.
+[[headers]]
+  for = "/assets/logo/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
 # --- Intestazioni di sicurezza di base ---
 [[headers]]
   for = "/*"

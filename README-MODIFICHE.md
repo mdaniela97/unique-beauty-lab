@@ -22,7 +22,8 @@ unique-beauty-lab/
 ├── strumenti/
 │   ├── genera-immagini.py     rigenera assets/img dalle foto originali
 │   └── manifest.json          larghezze prodotte per ogni immagine
-├── favicon.svg · robots.txt · sitemap.xml · netlify.toml
+├── assets/logo/                 logo del centro (PNG) + favicon 32/48/180/512
+├── robots.txt · sitemap.xml · netlify.toml
 ```
 
 Le foto sorgente stanno **fuori** dalla cartella del sito, per non appesantire
