@@ -3,33 +3,32 @@
     "title": "Centro Estetico a Torino | Unique Beauty Lab — Laser, Viso e Corpo",
     "description": "Centro estetico a Torino in Corso Sebastopoli 267: epilazione laser, trattamenti viso, laminazione ciglia, unghie e massaggi. 5,0★ su Google. Consulenza laser gratuita — scrivici su WhatsApp."
   },
-  "hero": {
-    "sopratitolo": "Unique Beauty Lab · Torino",
-    "titolo": "Il tuo centro estetico nel cuore di Torino",
-    "tagline": "Epilazione laser, viso, corpo e sguardo. Trattamenti su misura, seguiti passo dopo passo.",
-    "nota": "Rispondiamo in giornata negli orari di apertura · Consulenza laser gratuita"
-  },
-  "banner": {
-    "titolo": "Consulenza Laser *Gratuita*",
-    "sottotitolo": "Analisi personalizzata della pelle · valutazione delle zone da trattare · nessun impegno."
-  },
-  "consulenza": {
-    "sopratitolo": "Epilazione laser",
-    "titolo": "Scopri se il trattamento laser è *adatto a te*",
-    "intro": "Ogni pelle e ogni pelo rispondono in modo diverso. Prima di iniziare analizziamo insieme la tua situazione e ti diciamo con onestà quante sedute servono e che risultato aspettarti.",
-    "punti": [
-      { "testo": "Analisi di pelle e tipo di pelo con test personalizzato" },
-      { "testo": "Piano di sedute e preventivo chiaro, senza sorprese" },
-      { "testo": "Nessun obbligo di acquisto: decidi con calma" },
-      { "testo": "Durata 30 minuti, su appuntamento" }
-    ],
-    "etichettaPrezzo": "Gratuita",
-    "etichettaDurata": "30 minuti · su appuntamento"
-  },
   "servizi": {
     "sopratitolo": "Il nostro listino",
     "titolo": "Servizi e trattamenti",
     "testoGuida": "Tocca una categoria per vedere tutti i trattamenti, i prezzi e i risultati reali."
+  },
+  "blogSez": {
+    "sopratitolo": "Consigli dal centro",
+    "titolo": "Dal nostro blog",
+    "testoGuida": "Le domande che ci fanno più spesso, con risposte chiare e senza promesse impossibili."
+  },
+  "banner": {
+    "titolo": "Consulenza Laser *Gratuita*",
+    "sottotitolo": "Analisi personalizzata della pelle e dei peli · Nessun impegno · Nessun vincolo di acquisto pacchetti"
+  },
+  "recensioniSez": {
+    "sopratitolo": "Dicono di noi",
+    "titolo": "Le nostre recensioni"
+  },
+  "contattiSez": {
+    "sopratitolo": "Vieni a trovarci",
+    "titolo": "Contatti e dove siamo",
+    "testoGuida": "Ti aspettiamo nel nostro centro a Torino. Scrivici su WhatsApp per informazioni o per prenotare la tua consulenza gratuita."
+  },
+  "prenota": {
+    "titolo": "Prenota il tuo appuntamento",
+    "testo": "Scrivici su WhatsApp: ti rispondiamo in giornata negli orari di apertura e troviamo insieme l'orario che ti serve."
   },
   "risultati": {
     "sopratitolo": "Risultati reali",
@@ -44,6 +43,33 @@
       "nota": "Sguardo aperto e definito, senza extension."
     }
   },
+  "consulenza": {
+    "sopratitolo": "Epilazione laser",
+    "titolo": "Scopri se il trattamento laser è *adatto a te*",
+    "intro": "Ogni pelle e ogni pelo rispondono in modo diverso. Prima di iniziare analizziamo insieme la tua situazione e ti diciamo con onestà quante sedute servono e che risultato aspettarti.",
+    "punti": [
+      {
+        "testo": "Analisi di pelle e tipo di pelo con test personalizzato"
+      },
+      {
+        "testo": "Piano di sedute e preventivo chiaro, senza sorprese"
+      },
+      {
+        "testo": "Nessun obbligo di acquisto: decidi con calma"
+      },
+      {
+        "testo": "Durata 30 minuti, su appuntamento"
+      }
+    ],
+    "etichettaPrezzo": "Gratuita",
+    "etichettaDurata": "30 minuti · su appuntamento"
+  },
+  "hero": {
+    "sopratitolo": "Unique Beauty Lab · Torino",
+    "titolo": "Il tuo centro estetico nel cuore di Torino",
+    "tagline": "Epilazione laser, viso, corpo e sguardo. Trattamenti su misura, seguiti passo dopo passo.",
+    "nota": "Rispondiamo in giornata negli orari di apertura · Consulenza laser gratuita"
+  },
   "team": {
     "sopratitolo": "Il centro estetico",
     "titolo": "Conosci il team",
@@ -51,23 +77,5 @@
     "p1": "Da oltre 10 anni mi dedico al mondo dell'estetica con un obiettivo preciso: aiutare ogni persona a sentirsi bene con sé stessa attraverso trattamenti personalizzati, tecnologie all'avanguardia e una formazione continua.",
     "p2": "Insieme al mio team condividiamo gli stessi valori: professionalità, attenzione ai dettagli e ascolto. Ogni trattamento nasce dalle esigenze della persona, perché crediamo che la bellezza non sia perfezione, ma armonia.",
     "p3": "Benvenuti in Unique Beauty Lab Torino. Qui troverete persone che amano davvero ciò che fanno e che si prenderanno cura di voi con competenza, passione e professionalità."
-  },
-  "recensioniSez": {
-    "sopratitolo": "Dicono di noi",
-    "titolo": "Le nostre recensioni"
-  },
-  "blogSez": {
-    "sopratitolo": "Consigli dal centro",
-    "titolo": "Dal nostro blog",
-    "testoGuida": "Le domande che ci fanno più spesso, con risposte chiare e senza promesse impossibili."
-  },
-  "contattiSez": {
-    "sopratitolo": "Vieni a trovarci",
-    "titolo": "Contatti e dove siamo",
-    "testoGuida": ""
-  },
-  "prenota": {
-    "titolo": "Prenota il tuo appuntamento",
-    "testo": "Scrivici su WhatsApp: ti rispondiamo in giornata negli orari di apertura e troviamo insieme l'orario che ti serve."
   }
 }
