@@ -26,11 +26,13 @@
         }
       ],
       "messaggio": "sguardo",
-      "immagine": "/assets/img/laminazione-ciglia-cabina",
+      "immagine": "/assets/img/ciglia-definite-primo-piano",
       "imgW": [
         640,
-        1024
+        1000,
+        1600
       ],
+      "imgAlt": "Primo piano di ciglia definite dopo laminazione",
       "risultati": "/prima-e-dopo.html#ciglia",
       "nome": "Sguardo & Sopracciglia",
       "id": "sguardo"
@@ -153,10 +155,11 @@
         }
       ],
       "messaggio": "laser",
-      "immagine": "/assets/img/epilazione-laser-cabina",
+      "immagine": "/assets/img/laser-viso-cabina",
       "imgW": [
         640,
-        1000
+        1000,
+        1600
       ],
       "risultati": "/prima-e-dopo.html#laser",
       "nome": "Epilazione Laser",
@@ -194,10 +197,11 @@
         }
       ],
       "messaggio": "viso",
-      "immagine": "/assets/img/trattamento-viso-maschera",
+      "immagine": "/assets/img/trattamento-viso-idratante",
       "imgW": [
         640,
-        1000
+        1000,
+        1600
       ],
       "risultati": "/prima-e-dopo.html#viso",
       "nome": "Trattamenti Viso",
@@ -235,7 +239,7 @@
         }
       ],
       "messaggio": "unghie",
-      "immagine": "/assets/img/unghie-semipermanente-french",
+      "immagine": "/assets/img/unghie-cliente-perlato",
       "imgW": [
         640,
         1000
@@ -323,7 +327,7 @@
     },
     {
       "sottotitolo": "Ceretta viso, corpo e uomo con prodotti delicati.",
-      "imgAlt": "Prodotti delicati per la cura del corpo",
+      "imgAlt": "Scaldacera professionale con cera calda pronta per il trattamento",
       "icona": "cera",
       "trattamenti": [
         {
@@ -403,10 +407,11 @@
         }
       ],
       "messaggio": "cera",
-      "immagine": "/assets/img/oli-essenziali-corpo",
+      "immagine": "/assets/img/ceretta-corpo",
       "imgW": [
         640,
-        1000
+        1000,
+        1600
       ],
       "risultati": "/prima-e-dopo.html",
       "nome": "Epilazione a Cera",

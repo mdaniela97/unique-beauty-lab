@@ -7,10 +7,10 @@
       "categoria": "Epilazione Laser",
       "data": "2026-07-25",
       "dataTesto": "25 luglio 2026",
-      "immagine": "/assets/img/epilazione-laser-cabina",
+      "immagine": "/assets/img/laser-strumento-cabina",
       "larghezza": 1000,
-      "altezza": 667,
-      "alt": "Manipolo laser durante una seduta di epilazione definitiva"
+      "altezza": 750,
+      "alt": "Operatrice con occhiali di protezione durante una seduta di epilazione laser"
     },
     {
       "slug": "/blog/come-mantenere-la-pelle-giovane.html",
@@ -31,10 +31,10 @@
       "categoria": "Corpo & Massaggi",
       "data": "2026-07-25",
       "dataTesto": "25 luglio 2026",
-      "immagine": "/assets/img/massaggio-decontratturante",
+      "immagine": "/assets/img/massaggio-cellulite-hero",
       "larghezza": 1000,
       "altezza": 1500,
-      "alt": "Massaggio corpo professionale in cabina estetica"
+      "alt": "Massaggio corpo professionale su schiena e cervicale in cabina estetica"
     }
   ]
 }

@@ -135,6 +135,30 @@
   ],
   "altezzaMax": 1067
  },
+ "laser-strumento-cabina": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   1800
+  ],
+  "altezzaMax": 1200
+ },
+ "laser-viso-cabina": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   3200
+  ],
+  "altezzaMax": 2133
+ },
  "trattamento-viso-maschera": {
   "larghezze": [
    640,
@@ -159,7 +183,31 @@
   ],
   "altezzaMax": 1067
  },
+ "trattamento-viso-idratante": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   1600
+  ],
+  "altezzaMax": 1067
+ },
  "massaggio-decontratturante": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   3600
+  ],
+  "altezzaMax": 2400
+ },
+ "massaggio-cellulite-hero": {
   "larghezze": [
    640,
    1000,
@@ -183,6 +231,18 @@
   ],
   "altezzaMax": 1067
  },
+ "pietre-calde-schiena": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   1600
+  ],
+  "altezzaMax": 1067
+ },
  "oli-essenziali-corpo": {
   "larghezze": [
    640,
@@ -194,5 +254,52 @@
    1600
   ],
   "altezzaMax": 1067
+ },
+ "ceretta-corpo": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   1600
+  ],
+  "altezzaMax": 1067
+ },
+ "laminazione-ciglia-lavoro": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   1600
+  ],
+  "altezzaMax": 1067
+ },
+ "ciglia-definite-primo-piano": {
+  "larghezze": [
+   640,
+   1000,
+   1600
+  ],
+  "sorgente": [
+   2400,
+   1740
+  ],
+  "altezzaMax": 1160
+ },
+ "unghie-cliente-perlato": {
+  "larghezze": [
+   640,
+   1000
+  ],
+  "sorgente": [
+   1169,
+   1150
+  ],
+  "altezzaMax": 984
  }
 }

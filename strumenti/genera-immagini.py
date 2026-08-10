@@ -57,11 +57,20 @@ SORGENTI = {
     "team-unique-beauty-lab":              (ORIGINALI / "team-3-persone.jpg", TEAM),
     # --- foto di repertorio: da sostituire con scatti del centro ---
     "epilazione-laser-cabina":             (STOCK / "laser1-hd.jpg", GALLERY),
+    "laser-strumento-cabina":              (STOCK / "laser2-hd.jpg", GALLERY),
+    "laser-viso-cabina":                   (STOCK / "laser3-hd.jpg", GALLERY),
     "trattamento-viso-maschera":           (STOCK / "viso1-hd.jpg",  GALLERY),
     "pulizia-viso-cabina":                 (STOCK / "viso2-hd.jpg",  GALLERY),
+    "trattamento-viso-idratante":          (STOCK / "viso3-hd.jpg",  GALLERY),
     "massaggio-decontratturante":          (STOCK / "mass1-hd.jpg",  GALLERY),
+    "massaggio-cellulite-hero":            (STOCK / "mass3-hd.jpg",  GALLERY),
     "massaggio-pietre-calde":              (STOCK / "mass2-hd.jpg",  GALLERY),
+    "pietre-calde-schiena":                (STOCK / "pietre-hd.jpg", GALLERY),
     "oli-essenziali-corpo":                (STOCK / "corpo1-hd.jpg", GALLERY),
+    "ceretta-corpo":                       (STOCK / "ceretta-hd.jpg", GALLERY),
+    "laminazione-ciglia-lavoro":           (STOCK / "ciglia2-hd.jpg", GALLERY),
+    "ciglia-definite-primo-piano":         (STOCK / "ciglia3-hd.jpg", GALLERY),
+    "unghie-cliente-perlato":              (ORIGINALI / "unghie-cliente-perlato.jpeg", GALLERY),
 }
 
 # AVIF a 58 rende come un JPEG a 82 pesando circa un terzo.
