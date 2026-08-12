@@ -2,7 +2,7 @@
   "categorie": [
     {
       "sottotitolo": "Laminazione ciglia e sopracciglia per uno sguardo definito.",
-      "imgAlt": "Trattamento di laminazione ciglia in cabina",
+      "imgAlt": "Primo piano di ciglia definite dopo laminazione",
       "icona": "sguardo",
       "trattamenti": [
         {
@@ -32,7 +32,6 @@
         1000,
         1600
       ],
-      "imgAlt": "Primo piano di ciglia definite dopo laminazione",
       "risultati": "/prima-e-dopo.html#ciglia",
       "nome": "Sguardo & Sopracciglia",
       "id": "sguardo"
@@ -183,7 +182,7 @@
         {
           "nome": "Brushing Viso",
           "durata": "45 min",
-          "prezzo": "€65"
+          "prezzo": "3500"
         },
         {
           "nome": "Radiofrequenza Viso",
