@@ -103,9 +103,9 @@ const SITE_DATA = {
   categorie: [
     {
       id: "sguardo",
-      immagine: "/assets/img/laminazione-ciglia-cabina",
-      imgW: [640, 1024],
-      imgAlt: "Trattamento di laminazione ciglia in cabina",
+      immagine: "/assets/img/sguardo-sopracciglia-ciglia",
+      imgW: [640, 736],
+      imgAlt: "Primo piano di un occhio con ciglia laminate e spazzolino, sguardo definito",
       nome: "Sguardo & Sopracciglia",
       sottotitolo: "Laminazione ciglia e sopracciglia per uno sguardo definito.",
       icona: "sguardo",
@@ -194,9 +194,9 @@ const SITE_DATA = {
     },
     {
       id: "corpo",
-      immagine: "/assets/img/massaggio-pietre-calde",
-      imgW: [640, 1000],
-      imgAlt: "Massaggio corpo rilassante in cabina",
+      immagine: "/assets/img/massaggio-bendaggi",
+      imgW: [640, 800],
+      imgAlt: "Trattamento corpo con bendaggi drenanti applicati sulle gambe",
       nome: "Corpo & Massaggi",
       sottotitolo: "Massaggi, rimodellamento e trattamenti anticellulite.",
       icona: "corpo",
@@ -206,6 +206,7 @@ const SITE_DATA = {
         { nome: "Massaggio Rilassante",                           durata: "1h",       prezzo: "€50" },
         { nome: "Massaggio Gambe",                                durata: "30 min",   prezzo: "€30" },
         { nome: "Massaggio Decontratturante Schiena e Cervicale",  durata: "30 min",   prezzo: "€40" },
+        { nome: "Bendaggi",                                       durata: "1h",       prezzo: "€50" },
         { nome: "Pressoterapia",                                  durata: "30 min",   prezzo: "€40" },
         { nome: "Trattamento Anticellulite",                      durata: "1h",       prezzo: "€90" },
         { nome: "Criolipolisi",                                   durata: "1h",       prezzo: "€360", badge: "Premium" },

@@ -26,11 +26,10 @@
         }
       ],
       "messaggio": "sguardo",
-      "immagine": "/assets/img/ciglia-definite-primo-piano",
+      "immagine": "/assets/img/sguardo-sopracciglia-ciglia",
       "imgW": [
         640,
-        1000,
-        1600
+        736
       ],
       "risultati": "/prima-e-dopo.html#ciglia",
       "nome": "Sguardo & Sopracciglia",
@@ -249,7 +248,7 @@
     },
     {
       "sottotitolo": "Massaggi, rimodellamento e trattamenti anticellulite.",
-      "imgAlt": "Massaggio corpo rilassante in cabina",
+      "imgAlt": "Trattamento corpo con bendaggi drenanti applicati sulle gambe",
       "icona": "corpo",
       "trattamenti": [
         {
@@ -266,6 +265,11 @@
           "nome": "Massaggio Decontratturante Schiena e Cervicale",
           "durata": "30 min",
           "prezzo": "€40"
+        },
+        {
+          "nome": "Bendaggi",
+          "durata": "1h",
+          "prezzo": "€50"
         },
         {
           "nome": "Pressoterapia",
@@ -315,10 +319,10 @@
         }
       ],
       "messaggio": "corpo",
-      "immagine": "/assets/img/massaggio-pietre-calde",
+      "immagine": "/assets/img/massaggio-bendaggi",
       "imgW": [
         640,
-        1000
+        800
       ],
       "risultati": "/prima-e-dopo.html#corpo",
       "nome": "Corpo & Massaggi",
