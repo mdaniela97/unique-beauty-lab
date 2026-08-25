@@ -207,7 +207,7 @@
     },
     {
       "sottotitolo": "Manicure, pedicure e semipermanente a lunga tenuta.",
-      "imgAlt": "Manicure con smalto semipermanente french",
+      "imgAlt": "Mano con french manicure colorato dai toni pastello",
       "icona": "unghie",
       "trattamenti": [
         {
@@ -237,10 +237,10 @@
         }
       ],
       "messaggio": "unghie",
-      "immagine": "/assets/img/unghie-cliente-perlato",
+      "immagine": "/assets/img/unghie-french-colorato",
       "imgW": [
         640,
-        1000
+        736
       ],
       "risultati": "/prima-e-dopo.html#unghie",
       "nome": "Unghie",

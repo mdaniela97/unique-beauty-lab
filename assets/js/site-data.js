@@ -176,9 +176,9 @@ const SITE_DATA = {
     },
     {
       id: "unghie",
-      immagine: "/assets/img/unghie-semipermanente-french",
-      imgW: [640, 1000],
-      imgAlt: "Manicure con smalto semipermanente french",
+      immagine: "/assets/img/unghie-french-colorato",
+      imgW: [640, 736],
+      imgAlt: "Mano con french manicure colorato dai toni pastello",
       nome: "Unghie",
       sottotitolo: "Manicure, pedicure e semipermanente a lunga tenuta.",
       icona: "unghie",
