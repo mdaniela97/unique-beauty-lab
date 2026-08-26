@@ -179,7 +179,7 @@ const SITE_DATA = {
       immagine: "/assets/img/unghie-french-colorato",
       imgW: [640, 736],
       imgAlt: "Mano con french manicure colorato dai toni pastello",
-      nome: "Unghie",
+      nome: "Manicure & Pedicure",
       sottotitolo: "Manicure, pedicure e semipermanente a lunga tenuta.",
       icona: "unghie",
       messaggio: "unghie",
