@@ -7,10 +7,10 @@
       "categoria": "Epilazione Laser",
       "data": "2026-07-25",
       "dataTesto": "25 luglio 2026",
-      "immagine": "/assets/img/laser-strumento-cabina",
+      "immagine": "/assets/img/blog-laser-ascella",
       "larghezza": 1000,
-      "altezza": 750,
-      "alt": "Operatrice con occhiali di protezione durante una seduta di epilazione laser"
+      "altezza": 378,
+      "alt": "Epilazione laser all'ascella con manipolo professionale"
     },
     {
       "slug": "/blog/come-mantenere-la-pelle-giovane.html",
@@ -31,10 +31,10 @@
       "categoria": "Corpo & Massaggi",
       "data": "2026-07-25",
       "dataTesto": "25 luglio 2026",
-      "immagine": "/assets/img/massaggio-cellulite-hero",
+      "immagine": "/assets/img/blog-bendaggi",
       "larghezza": 1000,
-      "altezza": 1500,
-      "alt": "Massaggio corpo professionale su schiena e cervicale in cabina estetica"
+      "altezza": 665,
+      "alt": "Trattamento corpo con bendaggi drenanti applicati sulle gambe"
     }
   ]
 }

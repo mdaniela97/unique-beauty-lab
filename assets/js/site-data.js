@@ -262,8 +262,8 @@ const SITE_DATA = {
       categoria: "Epilazione Laser",
       data: "2026-07-25",
       dataTesto: "25 luglio 2026",
-      immagine: "/assets/img/epilazione-laser-cabina", larghezza: 1000, altezza: 667,
-      alt: "Manipolo laser durante una seduta di epilazione definitiva"
+      immagine: "/assets/img/blog-laser-ascella", larghezza: 1000, altezza: 378,
+      alt: "Epilazione laser all'ascella con manipolo professionale"
     },
     {
       slug: "/blog/come-mantenere-la-pelle-giovane.html",
@@ -282,8 +282,8 @@ const SITE_DATA = {
       categoria: "Corpo & Massaggi",
       data: "2026-07-25",
       dataTesto: "25 luglio 2026",
-      immagine: "/assets/img/massaggio-decontratturante", larghezza: 1000, altezza: 1500,
-      alt: "Massaggio corpo professionale in cabina estetica"
+      immagine: "/assets/img/blog-bendaggi", larghezza: 1000, altezza: 665,
+      alt: "Trattamento corpo con bendaggi drenanti applicati sulle gambe"
     }
   ]
 };
