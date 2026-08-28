@@ -119,9 +119,9 @@ const SITE_DATA = {
     },
     {
       id: "laser",
-      immagine: "/assets/img/epilazione-laser-cabina",
-      imgW: [640, 1000],
-      imgAlt: "Seduta di epilazione laser professionale",
+      immagine: "/assets/img/epilazione-laser-3",
+      imgW: [400, 564],
+      imgAlt: "Trattamento di epilazione laser sulla gamba con manipolo professionale in cabina",
       nome: "Epilazione Laser",
       sottotitolo: "Addio peli superflui, con consulenza iniziale gratuita.",
       icona: "laser",

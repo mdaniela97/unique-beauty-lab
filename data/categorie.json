@@ -37,7 +37,7 @@
     },
     {
       "sottotitolo": "Addio peli superflui, con consulenza iniziale gratuita.",
-      "imgAlt": "Seduta di epilazione laser professionale",
+      "imgAlt": "Trattamento di epilazione laser sulla gamba con manipolo professionale in cabina",
       "icona": "laser",
       "trattamenti": [
         {
@@ -153,11 +153,10 @@
         }
       ],
       "messaggio": "laser",
-      "immagine": "/assets/img/laser-viso-cabina",
+      "immagine": "/assets/img/epilazione-laser-3",
       "imgW": [
-        640,
-        1000,
-        1600
+        400,
+        564
       ],
       "risultati": "/prima-e-dopo.html#laser",
       "nome": "Epilazione Laser",
