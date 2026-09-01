@@ -13,16 +13,16 @@
         {
           "nome": "Combo Laminazione Ciglia e Sopracciglia",
           "durata": "2h",
-          "prezzo": "€95",
+          "prezzo": "€110",
           "prezzoPieno": "€125",
           "badge": "Promo"
         },
         {
           "nome": "Laminazione Ciglia Coreana",
           "durata": "1h",
-          "prezzo": "€60",
+          "prezzo": "",
           "prezzoPieno": "€75",
-          "badge": "Promo"
+          "badge": null
         }
       ],
       "messaggio": "sguardo",
