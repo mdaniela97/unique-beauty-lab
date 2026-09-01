@@ -303,7 +303,7 @@ function renderArticoli(idContenitore = "griglia-articoli") {
         <span class="articolo-categoria">${esc(a.categoria)}</span>
         <h3 class="articolo-titolo"><a href="${a.slug}">${esc(a.titolo)}</a></h3>
         <p class="articolo-estratto">${esc(a.estratto)}</p>
-        <span class="link-freccia" aria-hidden="true">Leggi l'articolo</span>
+        <a class="link-freccia" href="${a.slug}">Leggi l'articolo</a>
       </div>
     </article>`).join("");
 }

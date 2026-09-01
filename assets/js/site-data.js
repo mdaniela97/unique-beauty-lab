@@ -25,7 +25,7 @@ const SITE_DATA = {
     indirizzoCompleto: "Corso Sebastopoli 267, 10136 Torino (TO)",
     telefono: "379 163 6447",
     partitaIva: "12610800018",
-    urlSito: "https://frolicking-pony-29cc7a.netlify.app"
+    urlSito: "https://uniquebeautylab.it"
   },
 
   /* ---------- LINK / CONTATTI ----------

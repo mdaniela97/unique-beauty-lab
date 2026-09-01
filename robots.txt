@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /consulenza/grazie/
 
-Sitemap: https://frolicking-pony-29cc7a.netlify.app/sitemap.xml
+Sitemap: https://uniquebeautylab.it/sitemap.xml
